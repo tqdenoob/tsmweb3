@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: false;
+}
+
+@plugin "daisyui/theme" {
+  name: "thirdspaces";
+  default: true;
+  prefersdark: false;
+  color-scheme: dark;
+
+  --color-base-100: oklch(0% 0 0);
+  --color-base-200: oklch(5.88% 0 0);
+  --color-base-300: oklch(13.53% 0 0);
+  --color-base-content: oklch(100% 0 0);
+  --color-primary: oklch(100% 0 0);
+  --color-primary-content: oklch(0% 0 0);
+  --color-secondary: oklch(62.3% 0.214 259.53);
+  --color-secondary-content: oklch(100% 0 0);
+  --color-accent: oklch(62.3% 0.214 259.53);
+  --color-accent-content: oklch(100% 0 0);
+  --color-neutral: oklch(20% 0 0);
+  --color-neutral-content: oklch(100% 0 0);
+  --color-info: oklch(62.3% 0.214 259.53);
+  --color-info-content: oklch(100% 0 0);
+  --color-success: oklch(62.3% 0.16 145);
+  --color-success-content: oklch(100% 0 0);
+  --color-warning: oklch(79.5% 0.17 70);
+  --color-warning-content: oklch(0% 0 0);
+  --color-error: oklch(62.8% 0.26 29);
+  --color-error-content: oklch(100% 0 0);
+
+  --rounded-box: 1rem;
+  --rounded-btn: 0.5rem;
+}
+
+@theme inline {
+  --font-sans: var(--font-zt-gatha);
+  --animate-marquee: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Grid background pattern */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* White text glow effect */
+.text-glow {
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.6),
+    0 0 30px rgba(255, 255, 255, 0.4),
+    0 0 60px rgba(255, 255, 255, 0.2);
+}
+
+/* Gradient orbs for CTA background */
+.bg-gradient-orbs {
+  background:
+    radial-gradient(ellipse 500px 400px at 20% 60%, rgba(128, 0, 255, 0.12), transparent),
+    radial-gradient(ellipse 500px 400px at 80% 40%, rgba(0, 180, 180, 0.12), transparent);
+}
+
+/* Gradient for case study section top */
+.bg-gradient-blue-top {
+  background:
+    linear-gradient(180deg, rgba(59, 130, 246, 0.08) 0%, transparent 30%);
+}
+
+/* Blue glow border for focused cards */
+.border-glow-blue {
+  box-shadow:
+    0 0 15px rgba(59, 130, 246, 0.4),
+    0 0 30px rgba(59, 130, 246, 0.2),
+    inset 0 0 15px rgba(59, 130, 246, 0.05);
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: var(--font-zt-gatha), sans-serif;
+}
+
+/* Brand marquee — hover pause */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Reduced motion: disable marquee */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none !important;
+  }
+}
