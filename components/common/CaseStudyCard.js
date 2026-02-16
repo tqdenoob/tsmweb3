@@ -6,30 +6,24 @@ export default function CaseStudyCard({
   title,
   tag,
   description,
-  isFocused = false,
 }) {
   const prefersReducedMotion = useReducedMotion();
 
   return (
     <motion.div
-      className={`
-        rounded-2xl overflow-hidden flex-shrink-0
-        w-[300px] md:w-[420px] h-[280px] md:h-[360px]
-        ${
-          isFocused
-            ? "border border-[#3B82F6] border-glow-blue"
-            : "border border-white/5"
-        }
-      `}
+      className="rounded-2xl overflow-hidden flex-shrink-0 w-[260px] sm:w-[320px] md:w-[420px] lg:w-[520px] h-[200px] sm:h-[250px] md:h-[320px] lg:h-[380px]"
       whileHover="hover"
       initial="rest"
     >
       {/* TODO: Replace with actual case study image using next/image */}
-      <div className="w-full h-full bg-[#1a1a1a] relative overflow-hidden">
+      <div className="w-full h-full bg-[#c8c8c8] relative overflow-hidden rounded-2xl">
+        {/* Subtle bottom gradient for title legibility */}
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent pointer-events-none z-[1]" />
+
         {/* Default title — visible at rest, hides on hover */}
         {title && (
           <motion.p
-            className="absolute bottom-4 left-4 text-white text-base font-medium z-10"
+            className="absolute bottom-4 left-5 text-white text-base font-medium z-10"
             variants={{
               rest: { opacity: 1 },
               hover: { opacity: 0 },
@@ -42,7 +36,7 @@ export default function CaseStudyCard({
 
         {/* Hover reveal overlay — slides up from bottom */}
         <motion.div
-          className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-5 flex flex-col justify-end pointer-events-none"
+          className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-5 flex flex-col justify-end pointer-events-none z-20"
           variants={
             prefersReducedMotion
               ? {

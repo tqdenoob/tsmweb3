@@ -4,18 +4,10 @@ import StepCard from "@/components/common/StepCard";
 function ArrowDownRight() {
   return (
     <div className="relative w-20 h-12">
-      <div className="absolute top-0 left-0 h-full w-0 border-l border-white/30" />
-      <div className="absolute bottom-0 left-0 w-full h-0 border-t border-white/30" />
       {/* Arrowhead → */}
-      <svg
-        className="absolute bottom-[-4px] right-[-6px] text-white/30"
-        width="10"
-        height="10"
-        viewBox="0 0 10 10"
-        fill="currentColor"
-      >
-        <path d="M0 0 L10 5 L0 10 Z" />
-      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="size-30">
+  <path strokeLinecap="round" strokeLinejoin="round" d="m16.49 12 3.75 3.75m0 0-3.75 3.75m3.75-3.75H3.74V4.499" />
+</svg>
     </div>
   );
 }
@@ -94,7 +86,7 @@ export default function Process() {
               number={3}
               title="Optimisation"
               description="We analyse our campaigns and identify areas of improvement to increase long-term engagement."
-              variant="blue"
+              // variant="blue"
             />
           </div>
         </div>
