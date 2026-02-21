@@ -240,13 +240,6 @@ export default function CaseStudyCarousel() {
       id="case-studies"
       className="py-16 md:py-24 overflow-hidden relative"
     >
-      {/* Background gradients */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-0 inset-x-0 h-1/3 bg-gradient-to-b from-[#1a3a5c]/20 to-transparent" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[400px] rounded-full bg-purple-500/10 blur-[120px]" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[300px] rounded-full bg-teal-500/8 blur-[100px]" />
-      </div>
-
       {/* Heading */}
       <div className="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-normal leading-tight mb-12">

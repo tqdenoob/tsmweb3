@@ -2,18 +2,12 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-export default function StepCard({
-  number,
-  title,
-  description,
-  variant = "default",
-}) {
-  const borderClass =
-    variant === "blue" ? "border-[#3B82F6]" : "border-white/10";
-  const glowColor =
-    variant === "blue"
-      ? "rgba(59, 130, 246, 0.20)"
-      : "rgba(255, 255, 255, 0.12)";
+const restShadow =
+  "0 0 20px rgba(255,255,255,0.06), 0 0 50px rgba(255,255,255,0.04), 0 0 100px rgba(255,255,255,0.02)";
+const hoverShadow =
+  "0 0 20px rgba(255,255,255,0.09), 0 0 50px rgba(255,255,255,0.06), 0 0 100px rgba(255,255,255,0.03)";
+
+export default function StepCard({ number, title, description }) {
   const prefersReducedMotion = useReducedMotion();
 
   return (
@@ -22,34 +16,20 @@ export default function StepCard({
       whileHover="hover"
       initial="rest"
     >
-      {/* Glow element behind the card */}
       <motion.div
-        className="absolute -inset-4 rounded-2xl -z-10 pointer-events-none"
+        className="border border-white/10 rounded-xl p-6"
+        variants={
+          prefersReducedMotion
+            ? {}
+            : {
+                rest: { scale: 1, boxShadow: restShadow },
+                hover: { scale: 1.03, boxShadow: hoverShadow },
+              }
+        }
         style={{
-          background: `radial-gradient(circle, ${glowColor} 0%, transparent 70%)`,
+          backgroundColor: "#141414",
+          ...(prefersReducedMotion ? { boxShadow: restShadow } : {}),
         }}
-        variants={
-          prefersReducedMotion
-            ? {}
-            : {
-                rest: { opacity: 0 },
-                hover: { opacity: 1 },
-              }
-        }
-        transition={{ duration: 0.3 }}
-      />
-
-      {/* Card body */}
-      <motion.div
-        className={`bg-[#141414] border ${borderClass} rounded-xl p-6`}
-        variants={
-          prefersReducedMotion
-            ? {}
-            : {
-                rest: { scale: 1 },
-                hover: { scale: 1.03 },
-              }
-        }
         transition={{ duration: 0.3 }}
       >
         <h3 className="text-base font-bold text-white mb-3">

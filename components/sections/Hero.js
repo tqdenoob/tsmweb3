@@ -1,6 +1,14 @@
 export default function Hero() {
   return (
-    <section className="px-8 md:px-16 lg:px-24 pt-4 pb-24">
+    /* NOTE: Section boundaries must remain seamless — no margin between sections, use padding only */
+    <section className="relative px-8 md:px-16 lg:px-24 pt-4 pb-24">
+      {/* Figma: "background type 4" — uses only approved palette: sky-800, blue-700, fuchsia-500, cyan-400 */}
+      <div className="absolute inset-0 pointer-events-none -z-10" aria-hidden="true">
+        <div className="absolute left-[30%] top-[5%] w-[65%] h-[70%] rounded-full bg-sky-800 opacity-25 blur-[150px]" />
+        <div className="absolute left-[40%] top-[20%] w-[35%] h-[45%] rounded-full bg-blue-700 opacity-20 blur-[120px]" />
+        <div className="absolute left-[55%] top-[15%] w-[30%] h-[40%] rounded-full bg-fuchsia-500 opacity-12 blur-[150px]" />
+        <div className="absolute left-[60%] top-[10%] w-[20%] h-[30%] rounded-full bg-cyan-400 opacity-10 blur-[100px]" />
+      </div>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
         {/* Left content */}
         <div className="flex-1 pt-8 lg:pt-16">
@@ -43,11 +51,6 @@ export default function Hero() {
                 <div className="w-full h-full bg-gradient-to-b from-[#2a2a2a] to-[#1a1a1a]" />
               </div>
             </div>
-
-            {/* Caption - same container width, so it stays centered under the cards */}
-            <p className="mt-4 text-base text-white/60 text-center">
-              Here are some of our videos!
-            </p>
           </div>
         </div>
       </div>

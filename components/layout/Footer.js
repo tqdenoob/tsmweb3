@@ -29,7 +29,13 @@ function WhatsAppIcon({ className }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0A0A0A] px-8 md:px-16 lg:px-24 pt-12 pb-8">
+    /* NOTE: Section boundaries must remain seamless — no margin between sections, use padding only */
+    <footer className="relative px-8 md:px-16 lg:px-24 pt-12 pb-8">
+      {/* Faint glow — uses only approved palette: sky-800, blue-700 */}
+      <div className="absolute inset-0 pointer-events-none -z-10" aria-hidden="true">
+        <div className="absolute left-[35%] top-[10%] w-[30%] h-[50%] rounded-full bg-sky-800 opacity-10 blur-[120px]" />
+        <div className="absolute left-[45%] top-[20%] w-[15%] h-[30%] rounded-full bg-blue-700 opacity-8 blur-[80px]" />
+      </div>
       <div className="max-w-6xl mx-auto">
         {/* Top row: logo, links, social icons */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">

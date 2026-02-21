@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Navbar() {
   return (
     <div className="sticky top-0 z-100 flex justify-center py-4 pointer-events-none">
-      <nav className="pointer-events-auto inline-flex items-center gap-8 md:gap-12 bg-white/10 backdrop-blur-xl border border-white/10 rounded-full px-6 md:px-8 py-3">
+      <nav className="pointer-events-auto inline-flex items-center gap-8 md:gap-12 bg-white/10 backdrop-blur-xl border border-white/10 rounded-full px-6 md:px-8 py-3 shadow-[0_4px_30px_rgba(7,89,133,0.12),0_8px_40px_rgba(29,78,216,0.06)]">
         {/* Logo */}
         <Link href="/" aria-label="Third Spaces Marketing home">
           <div className="w-9 h-9">

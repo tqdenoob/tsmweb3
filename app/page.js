@@ -9,27 +9,35 @@ import CallToAction from "@/components/sections/CallToAction";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-grid">
+    <div className="min-h-screen bg-grid overflow-x-clip">
       <Navbar />
-      <main>
-      <div className="w-[2032.52px] h-[942.17px] relative blur-3xl">
-    <div className="w-[814.12px] h-96 left-[1154.87px] top-[408.13px] absolute origin-top-left rotate-[-6.88deg] bg-blue-700 rounded-full blur-[200px]" />
-    <div className="w-72 h-64 left-[1510.41px] top-[373.05px] absolute bg-cyan-400 rounded-full blur-[100px]" />
-    <div className="w-80 h-72 left-[1555.51px] top-[227.30px] absolute origin-top-left rotate-[-10.82deg] bg-cyan-400 rounded-full blur-[100px]" />
-    <div className="w-[1281.12px] h-[514.76px] left-[59.28px] top-[204.81px] absolute bg-sky-800 rounded-full blur-[150px]" />
-    <div className="w-[617.02px] h-64 left-[1073.53px] top-[457.31px] absolute origin-top-left rotate-[6.51deg] bg-fuchsia-500 rounded-full blur-[150px]" />
-    <div className="w-[489.34px] h-52 left-[1136.50px] top-[506.34px] absolute origin-top-left rotate-[9deg] bg-pink-300 rounded-full blur-[100px]" />
-    <div className="w-[458.79px] h-64 left-[830.63px] top-[500.90px] absolute bg-teal-400 rounded-full blur-[150px]" />
-    <div className="w-64 h-40 left-[1114.15px] top-[558.61px] absolute bg-orange-200 rounded-full blur-[100px]" />
-    </div>
+      {/* isolate creates one stacking context for all glow elements — prevents them from
+           falling behind the body background. DO NOT add isolate/overflow-clip to individual
+           sections — that creates black seams at section boundaries. */}
+      <main className="isolate">
         <Hero />
         <Statistics />
         <Process />
+        <div className="relative">
+          <div
+            className="absolute -inset-x-[20%] -top-[5%] -bottom-[10%] pointer-events-none"
+            aria-hidden="true"
+          >
+            <div className="absolute left-[3%] top-[30%] w-[65%] h-[45%] rounded-full bg-sky-800 opacity-35 blur-[150px]" />
+            <div className="absolute left-[40%] top-[40%] w-[24%] h-[20%] rounded-full bg-teal-400 opacity-25 blur-[120px]" />
+            <div className="absolute left-[53%] top-[35%] w-[33%] h-[28%] rounded-full bg-fuchsia-500 opacity-30 blur-[150px]" />
+            <div className="absolute left-[57%] top-[42%] w-[26%] h-[20%] rounded-full bg-pink-300 opacity-20 blur-[100px]" />
+            <div className="absolute left-[45%] top-[33%] w-[40%] h-[25%] rounded-full bg-blue-700 opacity-25 blur-[200px]" />
+            <div className="absolute left-[76%] top-[30%] w-[16%] h-[18%] rounded-full bg-cyan-400 opacity-35 blur-[100px]" />
+            <div className="absolute left-[78%] top-[22%] w-[17%] h-[20%] rounded-full bg-cyan-400 opacity-30 blur-[100px]" />
+          </div>
         <BrandCarousel />
+        {/* Gradient background spanning case studies + CTA + footer */}
         <CaseStudyCarousel />
         <CallToAction />
+          <Footer />
+        </div>
       </main>
-      <Footer />
     </div>
   );
 }

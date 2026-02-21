@@ -1,40 +1,38 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import StepCard from "@/components/common/StepCard";
 
-/* L-shaped arrow: goes DOWN then RIGHT → */
-function ArrowDownRight() {
-  return (
-    <div className="relative w-20 h-12">
-      {/* Arrowhead → */}
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="size-30">
-  <path strokeLinecap="round" strokeLinejoin="round" d="m16.49 12 3.75 3.75m0 0-3.75 3.75m3.75-3.75H3.74V4.499" />
-</svg>
-    </div>
-  );
-}
+function AnimatedStep({ children, delay = 0, className = "" }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const prefersReducedMotion = useReducedMotion();
 
-/* L-shaped arrow: goes RIGHT then DOWN ↓ */
-function ArrowRightDown() {
   return (
-    <div className="relative w-20 h-12">
-      <div className="absolute top-0 left-0 w-full h-0 border-t border-white/30" />
-      <div className="absolute top-0 right-0 h-full w-0 border-l border-white/30" />
-      {/* Arrowhead ↓ */}
-      <svg
-        className="absolute bottom-[-6px] right-[-4px] text-white/30"
-        width="10"
-        height="10"
-        viewBox="0 0 10 10"
-        fill="currentColor"
-      >
-        <path d="M0 0 L5 10 L10 0 Z" />
-      </svg>
-    </div>
+    <motion.div
+      ref={ref}
+      className={className}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay, ease: "easeOut" }}
+    >
+      {children}
+    </motion.div>
   );
 }
 
 export default function Process() {
   return (
-    <section className="px-8 md:px-16 lg:px-24 py-20 md:py-32">
+    /* NOTE: Section boundaries must remain seamless — no margin between sections, use padding only */
+    <section className="relative px-8 md:px-16 lg:px-24 py-20 md:py-32">
+      {/* Figma: "Borealis" + "BG gradient 2" — uses only approved palette: sky-800, blue-700, fuchsia-500, cyan-400 */}
+      <div className="absolute inset-0 pointer-events-none -z-10" aria-hidden="true">
+        <div className="absolute left-[-5%] top-[30%] w-[45%] h-[50%] rounded-full bg-sky-800 opacity-20 blur-[150px]" />
+        <div className="absolute left-[15%] top-[35%] w-[35%] h-[45%] rounded-full bg-blue-700 opacity-20 blur-[180px]" />
+        <div className="absolute left-[40%] top-[25%] w-[35%] h-[50%] rounded-full bg-sky-800 opacity-18 blur-[150px]" />
+        <div className="absolute left-[60%] top-[30%] w-[25%] h-[35%] rounded-full bg-cyan-400 opacity-12 blur-[120px]" />
+      </div>
       <div className="max-w-5xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-16">
@@ -50,45 +48,34 @@ export default function Process() {
           </p>
         </div>
 
-        {/* Staircase steps - centered layout */}
-        <div className="flex flex-col max-w-3xl mx-auto">
+        {/* Staircase steps */}
+        <div className="flex flex-col gap-8 max-w-3xl mx-auto">
           {/* Step 1 - left */}
-          <div className="self-start">
+          <AnimatedStep delay={0} className="self-center lg:self-start">
             <StepCard
               number={1}
               title="Ideation"
               description="We meet up with you to discuss your campaign goals, and ideate and script content."
             />
-          </div>
-
-          {/* Arrow 1: ↓ then → */}
-          <div className="self-start ml-12 my-2">
-            <ArrowDownRight />
-          </div>
+          </AnimatedStep>
 
           {/* Step 2 - center */}
-          <div className="self-center">
+          <AnimatedStep delay={0.15} className="self-center">
             <StepCard
               number={2}
               title="Production"
               description="We meet your team to produce personalised videos that grab people&#39;s attention."
             />
-          </div>
-
-          {/* Arrow 2: → then ↓ */}
-          <div className="self-center ml-48 my-2">
-            <ArrowRightDown />
-          </div>
+          </AnimatedStep>
 
           {/* Step 3 - right */}
-          <div className="self-end">
+          <AnimatedStep delay={0.3} className="self-center lg:self-end">
             <StepCard
               number={3}
               title="Optimisation"
               description="We analyse our campaigns and identify areas of improvement to increase long-term engagement."
-              // variant="blue"
             />
-          </div>
+          </AnimatedStep>
         </div>
       </div>
     </section>

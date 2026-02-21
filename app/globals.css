@@ -65,13 +65,6 @@
     0 0 60px rgba(255, 255, 255, 0.2);
 }
 
-/* Gradient orbs for CTA background */
-.bg-gradient-orbs {
-  background:
-    radial-gradient(ellipse 500px 400px at 20% 60%, rgba(128, 0, 255, 0.12), transparent),
-    radial-gradient(ellipse 500px 400px at 80% 40%, rgba(0, 180, 180, 0.12), transparent);
-}
-
 /* Gradient for case study section top */
 .bg-gradient-blue-top {
   background:
@@ -106,9 +99,12 @@ body {
   scrollbar-width: none;
 }
 
-/* Reduced motion: disable marquee */
+/* Reduced motion: disable marquee and atmospheric glows */
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee {
     animation: none !important;
+  }
+  [aria-hidden="true"][style*="blur"] {
+    opacity: 0 !important;
   }
 }

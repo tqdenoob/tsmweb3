@@ -11,7 +11,14 @@ export default function Statistics() {
   ];
 
   return (
-    <section className="px-8 md:px-16 lg:px-24 py-16 md:py-24">
+    /* NOTE: Section boundaries must remain seamless — no margin between sections, use padding only */
+    <section className="relative px-8 md:px-16 lg:px-24 py-16 md:py-24">
+      {/* Atmospheric glow — uses only approved palette: sky-800, blue-700, cyan-400 */}
+      <div className="absolute inset-0 pointer-events-none -z-10" aria-hidden="true">
+        <div className="absolute left-[50%] top-[10%] w-[40%] h-[50%] rounded-full bg-blue-700 opacity-12 blur-[150px]" />
+        <div className="absolute left-[60%] top-[25%] w-[20%] h-[30%] rounded-full bg-cyan-400 opacity-12 blur-[100px]" />
+        <div className="absolute left-[30%] top-[20%] w-[30%] h-[35%] rounded-full bg-sky-800 opacity-10 blur-[120px]" />
+      </div>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
         {/* Left: "We deliver." */}
         <div className="lg:w-[30%] shrink-0">
