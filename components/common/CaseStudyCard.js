@@ -1,73 +1,108 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-
-export default function CaseStudyCard({
-  title,
-  tag,
-  description,
-}) {
-  const prefersReducedMotion = useReducedMotion();
-
+function Thumbnail({ image, views }) {
   return (
-    <motion.div
-      className="rounded-2xl overflow-hidden flex-shrink-0 w-[260px] sm:w-[320px] md:w-[420px] lg:w-[520px] h-[200px] sm:h-[250px] md:h-[320px] lg:h-[380px]"
-      whileHover="hover"
-      initial="rest"
-    >
-      {/* TODO: Replace with actual case study image using next/image */}
-      <div className="w-full h-full bg-[#c8c8c8] relative overflow-hidden rounded-2xl">
-        {/* Subtle bottom gradient for title legibility */}
-        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent pointer-events-none z-[1]" />
-
-        {/* Default title — visible at rest, hides on hover */}
-        {title && (
-          <motion.p
-            className="absolute bottom-4 left-5 text-white text-base font-medium z-10"
-            variants={{
-              rest: { opacity: 1 },
-              hover: { opacity: 0 },
-            }}
-            transition={{ duration: 0.2 }}
+    <div className="aspect-[9/16] w-[140px] sm:w-[160px] md:w-[180px] lg:w-[200px] rounded-2xl overflow-hidden relative flex-shrink-0">
+      {image ? (
+        <img
+          src={image}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460]" />
+      )}
+      {/* Bottom gradient for legibility */}
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+      {/* View count pill */}
+      {views && (
+        <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-black/40 backdrop-blur-sm rounded-full px-2.5 py-1">
+          <svg
+            width="10"
+            height="12"
+            viewBox="0 0 10 12"
+            fill="none"
+            className="text-white"
           >
-            {title}
-          </motion.p>
-        )}
+            <path d="M1 1v10l8-5L1 1Z" fill="currentColor" />
+          </svg>
+          <span className="text-white text-xs font-semibold">{views}</span>
+        </div>
+      )}
+    </div>
+  );
+}
 
-        {/* Hover reveal overlay — slides up from bottom */}
-        <motion.div
-          className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-5 flex flex-col justify-end pointer-events-none z-20"
-          variants={
-            prefersReducedMotion
-              ? {
-                  rest: { opacity: 0 },
-                  hover: { opacity: 1 },
-                }
-              : {
-                  rest: { y: "100%", opacity: 0 },
-                  hover: { y: 0, opacity: 1 },
-                }
-          }
-          transition={{ duration: 0.35, ease: "easeOut" }}
-        >
-          {tag && (
-            <span className="text-xs text-white/50 uppercase tracking-wider mb-1">
-              {tag}
-            </span>
-          )}
-          {title && (
-            <h3 className="text-lg font-bold text-white mb-1">{title}</h3>
-          )}
-          {description && (
-            <p className="text-sm text-white/60 mb-3 leading-relaxed">
-              {description}
-            </p>
-          )}
-          <span className="text-sm text-[#3B82F6] font-medium pointer-events-auto">
-            Read more &rarr;
-          </span>
-        </motion.div>
+function StatBlock({ valueBefore, labelBefore, valueAfter, labelAfter, duration }) {
+  return (
+    <div className="flex items-end gap-3 md:gap-4">
+      {/* Before */}
+      <div className="flex flex-col items-center">
+        <span className="text-white/70 text-lg md:text-xl font-semibold">{valueBefore}</span>
+        <span className="text-white/40 text-xs mt-0.5">{labelBefore}</span>
       </div>
-    </motion.div>
+
+      {/* Arrow connector */}
+      <div className="flex flex-col items-center gap-0.5 pb-4">
+        <span className="text-white/40 text-[10px] md:text-xs whitespace-nowrap">{duration}</span>
+        <svg width="60" height="12" viewBox="0 0 60 12" fill="none" className="md:w-[80px]">
+          <line
+            x1="0"
+            y1="6"
+            x2="50"
+            y2="6"
+            stroke="rgba(255,255,255,0.3)"
+            strokeWidth="1.5"
+            strokeDasharray="4 3"
+          />
+          <path d="M48 2l6 4-6 4" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" fill="none" />
+        </svg>
+      </div>
+
+      {/* After */}
+      <div className="flex flex-col items-center">
+        <span className="text-white text-2xl md:text-3xl font-bold text-glow">{valueAfter}</span>
+        <span className="text-white/40 text-xs mt-0.5">{labelAfter}</span>
+      </div>
+    </div>
+  );
+}
+
+export default function CaseStudyCard({ title, subtitle, thumbnails, stats }) {
+  return (
+    <div className="w-full flex flex-col items-center px-4">
+      {/* Title */}
+      <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center lowercase text-glow">
+        {title}
+      </h3>
+
+      {/* Subtitle */}
+      <p className="text-base md:text-lg text-white/50 text-center mt-2">
+        {subtitle}
+      </p>
+
+      {/* Thumbnails row */}
+      <div className="flex justify-center gap-3 md:gap-4 mt-8 md:mt-12">
+        {thumbnails?.map((thumb, i) => (
+          <Thumbnail key={i} image={thumb.image} views={thumb.views} />
+        ))}
+      </div>
+
+      {/* Stats row */}
+      {stats && stats.length > 0 && (
+        <div className="flex flex-wrap justify-center gap-8 md:gap-16 mt-8 md:mt-12">
+          {stats.map((stat, i) => (
+            <StatBlock
+              key={i}
+              valueBefore={stat.valueBefore}
+              labelBefore={stat.labelBefore}
+              valueAfter={stat.valueAfter}
+              labelAfter={stat.labelAfter}
+              duration={stat.duration}
+            />
+          ))}
+        </div>
+      )}
+    </div>
   );
 }

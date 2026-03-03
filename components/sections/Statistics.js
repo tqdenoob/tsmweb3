@@ -2,12 +2,11 @@ import StatItem from "@/components/common/StatItem";
 
 export default function Statistics() {
   const stats = [
-    { value: "30M+", label: "Views and counting" },
-    { value: "25+", label: "Success stories" },
-    { value: "83%", label: "Conversion Rates" },
+    { value: "30M+", label: "Views" },
+    { value: "2668%", label: "Monthly engagement growth" },
     { value: "50k+", label: "Followers gained" },
-    { value: "200k+", label: "Engagement on posts" },
-    { value: "50+", label: "Creative Projects" },
+    { value: "10+", label: "Clients" },
+    { value: "100+", label: "Videos produced" },
   ];
 
   return (
@@ -33,14 +32,15 @@ export default function Statistics() {
         </div>
 
         {/* Right: Stats grid */}
-        <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-x-12 lg:gap-x-20 gap-y-10 text-glow">
+        <div className="flex-1 flex flex-wrap justify-center gap-x-12 lg:gap-x-20 gap-y-10 text-glow">
           {stats.map((stat, index) => (
-            <StatItem
-              key={stat.label}
-              value={stat.value}
-              label={stat.label}
-              index={index}
-            />
+            <div key={stat.label} className="w-[calc(50%-24px)] md:w-[calc(33.333%-32px)] lg:w-[calc(33.333%-54px)]">
+              <StatItem
+                value={stat.value}
+                label={stat.label}
+                index={index}
+              />
+            </div>
           ))}
         </div>
       </div>
