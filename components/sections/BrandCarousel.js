@@ -1,26 +1,28 @@
 export default function BrandCarousel() {
-  /*
-    TODO: Replace placeholder brand logos with actual exported images.
-    Place brand logo files in public/images/brands/ as SVG or PNG.
-  */
-
   const brands = [
-    { name: "Disney On Ice", width: 120 },
-    { name: "COACH", width: 100 },
-    { name: "Jewel Changi Airport", width: 120 },
-    { name: "Hitachi Vantara", width: 120 },
-    { name: "Mandai Wildlife Reserve", width: 100 },
-    { name: "Honda", width: 50 },
-    { name: "Mala", width: 60 },
+    { name: "Disney On Ice", image: "/images/brands/Disney.png", width: 120 },
+    { name: "Coach", image: "/images/brands/coach.png", width: 100 },
+    { name: "A Hot Hideout", image: "/images/brands/ahothideout.png", width: 120 },
+    { name: "Genki Sushi", image: "/images/brands/genki.png", width: 120 },
+    { name: "Beans & Beats", image: "/images/brands/bnb.png", width: 120 },
+    { name: "Aramco", image: "/images/brands/aramco.png", width: 120 },
+    { name: "Mediacorp", image: "/images/brands/mediacorp.png", width: 120 },
+    { name: "Guzman y Gomez", image: "/images/brands/guzman.png", width: 120 },
+    { name: "Texas Chicken", image: "/images/brands/texaschicken.png", width: 120 },
+    { name: "Ajoomma", image: "/images/brands/ajoomma.png", width: 100 },
+    { name: "Nova", image: "/images/brands/nova.png", width: 100 },
+    { name: "Music House", image: "/images/brands/musichouse.png", width: 120 },
+    { name: "Whale Tea", image: "/images/brands/whaletea.png", width: 100 },
+    { name: "Yakiniku", image: "/images/brands/yakiniku.png", width: 120 },
   ];
 
   return (
     <section className="px-8 md:px-16 lg:px-24 py-16 md:py-24">
-      <div className="max-w-5xl mx-auto text-center">
+      <div className="max-w-5xl lg:max-w-none mx-auto text-center">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-normal leading-tight mb-12">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight mb-12">
           Trusted by{" "}
-          <span className="font-bold text-5xl md:text-6xl align-baseline text-glow">
+          <span className="font-bold text-5xl md:text-6xl lg:text-7xl align-baseline text-glow">
             100+
           </span>{" "}
           of{" "}
@@ -46,10 +48,11 @@ export default function BrandCarousel() {
               className="h-10 md:h-12 flex items-center justify-center opacity-80 flex-shrink-0"
               style={{ width: brand.width }}
             >
-              {/* TODO: Replace with <Image> once brand logo assets are exported */}
-              <span className="text-white text-xs font-medium text-center leading-tight whitespace-nowrap">
-                {brand.name}
-              </span>
+              <img
+                src={brand.image}
+                alt={brand.name}
+                className="max-h-full max-w-full object-contain"
+              />
             </div>
           ))}
 
@@ -61,9 +64,11 @@ export default function BrandCarousel() {
               style={{ width: brand.width }}
               aria-hidden="true"
             >
-              <span className="text-white text-xs font-medium text-center leading-tight whitespace-nowrap">
-                {brand.name}
-              </span>
+              <img
+                src={brand.image}
+                alt=""
+                className="max-h-full max-w-full object-contain"
+              />
             </div>
           ))}
         </div>

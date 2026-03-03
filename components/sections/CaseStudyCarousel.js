@@ -6,41 +6,41 @@ import CaseStudyCard from "@/components/common/CaseStudyCard";
 
 const caseStudies = [
   {
-    title: "grograce",
-    subtitle: "an indoor vertical farm in singapore",
+    title: "Beans&Beats",
+    subtitle: "singapore's fastest growing events company hosting DJ music events with specialty coffee",
     thumbnails: [
-      { image: null, views: "5.1M" },
-      { image: null, views: "61K" },
-      { image: null, views: "279K" },
+      { image: "/images/casestudies/bnb1.jpg", views: "724K" },
+      { image: "/images/casestudies/bnb2.jpg", views: "424K" },
+      { image: "/images/casestudies/bnb3.jpg", views: "721K" },
     ],
     stats: [
-      { type: "growth", labelBefore: "followers", valueBefore: "266", labelAfter: "followers", valueAfter: "42,000", duration: "in first 30 days" },
-      { type: "growth", labelBefore: "views", valueBefore: "0", labelAfter: "views", valueAfter: "5.5M", duration: "in first 30 days" },
+      { type: "growth", labelBefore: "followers", valueBefore: "143", labelAfter: "followers", valueAfter: "3159", duration: "in first 90 days" },
+      { type: "growth", labelBefore: "engagement", valueBefore: "51", labelAfter: "engagement", valueAfter: "18,624", duration: "in first 90 days" },
     ],
   },
   {
     title: "A Hot Hideout",
-    subtitle: "a viral f&b campaign in singapore",
+    subtitle: "fastest growing mala chain in singapore with a viral organic content campaign",
     thumbnails: [
-      { image: null, views: "2.1M" },
-      { image: null, views: "850K" },
-      { image: null, views: "210K" },
+      { image: "/images/casestudies/ahothideout1.jpg", views: "559K" },
+      { image: "/images/casestudies/ahothideout2.jpg", views: "393K" },
+      { image: "/images/casestudies/ahothideout3.jpg", views: "460K" },
     ],
     stats: [
-      { type: "growth", labelBefore: "followers", valueBefore: "500", labelAfter: "followers", valueAfter: "15,000", duration: "in first 30 days" },
-      { type: "growth", labelBefore: "views", valueBefore: "0", labelAfter: "views", valueAfter: "3.2M", duration: "in first 30 days" },
+      { type: "growth", labelBefore: "engagement", valueBefore: "655", labelAfter: "engagement", valueAfter: "18,264", duration: "in 2 months" },
+      { type: "growth", labelBefore: "views", valueBefore: "24k", labelAfter: "views", valueAfter: "412k", duration: "in 2 months" },
     ],
   },
   {
-    title: "Brand Story",
-    subtitle: "building authentic brand presence",
+    title: "Genki Sushi",
+    subtitle: "driving foot traffic and brand awareness for one of singapore's top sushi chains",
     thumbnails: [
-      { image: null, views: "1.2M" },
-      { image: null, views: "430K" },
-      { image: null, views: "95K" },
+      { image: "/images/casestudies/genki1.jpg", views: "109K" },
+      { image: "/images/casestudies/genki2.jpg", views: "110K" },
+      { image: "/images/casestudies/genki3.jpg", views: "136K" },
     ],
     stats: [
-      { type: "growth", labelBefore: "followers", valueBefore: "1,200", labelAfter: "followers", valueAfter: "28,000", duration: "in first 30 days" },
+      { type: "growth", labelBefore: "engagement rate", valueBefore: "0.075%", labelAfter: "engagement rate", valueAfter: "4.39%", duration: "in first 30 days" },
       { type: "growth", labelBefore: "views", valueBefore: "0", labelAfter: "views", valueAfter: "1.8M", duration: "in first 30 days" },
     ],
   },
@@ -102,7 +102,7 @@ export default function CaseStudyCarousel() {
     >
       {/* Heading */}
       <div className="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
-        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-normal leading-tight mb-12">
+        <h2 className="text-center text-4xl md:text-5xl lg:text-6xl font-normal leading-tight mb-12">
           Hear from what{" "}
           <span className="font-bold text-glow">others</span> have to say
         </h2>

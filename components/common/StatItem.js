@@ -1,32 +1,42 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { animate, useInView, useMotionValue, useReducedMotion } from "framer-motion";
 
 function parseStatValue(value) {
   const match = value.match(/^(\d+)(.*)/);
   return {
     number: parseInt(match[1], 10),
-    suffix: match[2],
+    suffix: match[2] || "",
   };
 }
 
-export default function StatItem({ value, label, index = 0 }) {
+function formatNumber(n, suffix) {
+  if (suffix) return Math.floor(n) + suffix;
+  return Math.floor(n).toLocaleString();
+}
+
+export default function StatItem({ value, label, index = 0, live = false, incrementPerSecond = 0 }) {
   const { number, suffix } = parseStatValue(value);
   const count = useMotionValue(0);
   const ref = useRef(null);
   const numberRef = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const currentValue = useRef(number);
   const prefersReducedMotion = useReducedMotion();
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  const updateDisplay = useCallback((n) => {
+    if (numberRef.current) {
+      numberRef.current.textContent = formatNumber(n, suffix);
+    }
+  }, [suffix]);
 
   useEffect(() => {
     const unsubscribe = count.on("change", (latest) => {
-      if (numberRef.current) {
-        numberRef.current.textContent = Math.floor(latest) + suffix;
-      }
+      updateDisplay(latest);
     });
     return unsubscribe;
-  }, [count, suffix]);
+  }, [count, updateDisplay]);
 
   useEffect(() => {
     if (!isInView) return;
@@ -39,6 +49,9 @@ export default function StatItem({ value, label, index = 0 }) {
       controls = animate(count, number, {
         duration,
         ease: "easeOut",
+        onComplete: () => {
+          currentValue.current = number;
+        },
       });
     }, delay);
 
@@ -46,7 +59,32 @@ export default function StatItem({ value, label, index = 0 }) {
       clearTimeout(timeoutId);
       controls?.stop();
     };
-  }, [isInView, number, index, prefersReducedMotion]);
+  }, [isInView, number, index, prefersReducedMotion, count]);
+
+  // Live continuous incrementing after initial animation
+  useEffect(() => {
+    if (!live || !isInView || !incrementPerSecond) return;
+
+    const startDelay = (prefersReducedMotion ? 0 : 2000) + index * 200;
+    let intervalId;
+
+    const delayId = setTimeout(() => {
+      const intervalMs = 50;
+      const baseIncrement = incrementPerSecond * (intervalMs / 1000);
+
+      intervalId = setInterval(() => {
+        // Randomize slightly for organic feel (±30%)
+        const jitter = 0.7 + Math.random() * 0.6;
+        currentValue.current += baseIncrement * jitter;
+        updateDisplay(currentValue.current);
+      }, intervalMs);
+    }, startDelay);
+
+    return () => {
+      clearTimeout(delayId);
+      clearInterval(intervalId);
+    };
+  }, [live, isInView, incrementPerSecond, index, prefersReducedMotion, updateDisplay]);
 
   return (
     <div ref={ref}>

@@ -12,7 +12,7 @@ export default function StepCard({ number, title, description }) {
 
   return (
     <motion.div
-      className="relative w-full max-w-[320px]"
+      className="relative w-full"
       whileHover="hover"
       initial="rest"
     >

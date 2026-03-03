@@ -7,11 +7,11 @@ export default function CallToAction() {
         <div className="absolute left-[25%] top-[10%] w-[35%] h-[50%] rounded-full bg-fuchsia-500 opacity-10 blur-[120px]" />
         <div className="absolute left-[40%] top-[20%] w-[30%] h-[45%] rounded-full bg-sky-800 opacity-12 blur-[100px]" />
       </div>
-      <div className="relative z-10 max-w-2xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-normal leading-tight">
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight whitespace-nowrap">
           Ready to grow your <span className="font-bold text-glow">brand?</span>
         </h2>
-        <p className="mt-6 text-sm text-white/50 max-w-sm mx-auto leading-relaxed">
+        <p className="mt-6 text-base md:text-lg text-white/60 max-w-sm mx-auto leading-relaxed">
           Tell us what you&rsquo;re looking for, and we
           will get back right away with a quote,
           ideation timeline and next steps.

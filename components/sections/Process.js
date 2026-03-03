@@ -41,17 +41,16 @@ export default function Process() {
             <br />
             <span className="italic font-bold text-glow">actually work</span>
           </h2>
-          <p className="mt-6 text-sm md:text-base text-white/50 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
             We got sick of dinosaur-aged companies using outdated marketing
             strategies from their textbooks, so we created our own process to
             share real stories that resonate with the new generation.
           </p>
         </div>
 
-        {/* Staircase steps */}
-        <div className="flex flex-col gap-8 max-w-3xl mx-auto">
-          {/* Step 1 - left */}
-          <AnimatedStep delay={0} className="self-center lg:self-start">
+        {/* Process steps — single row on desktop, stacked on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <AnimatedStep delay={0}>
             <StepCard
               number={1}
               title="Ideation"
@@ -59,8 +58,7 @@ export default function Process() {
             />
           </AnimatedStep>
 
-          {/* Step 2 - center */}
-          <AnimatedStep delay={0.15} className="self-center">
+          <AnimatedStep delay={0.15}>
             <StepCard
               number={2}
               title="Production"
@@ -68,8 +66,7 @@ export default function Process() {
             />
           </AnimatedStep>
 
-          {/* Step 3 - right */}
-          <AnimatedStep delay={0.3} className="self-center lg:self-end">
+          <AnimatedStep delay={0.3}>
             <StepCard
               number={3}
               title="Optimisation"
