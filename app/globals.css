@@ -65,22 +65,13 @@ html {
 .text-glow {
   text-shadow:
     0 0 10px rgba(255, 255, 255, 0.6),
-    0 0 30px rgba(255, 255, 255, 0.4),
-    0 0 60px rgba(255, 255, 255, 0.2);
+    0 0 30px rgba(255, 255, 255, 0.4);
 }
 
 /* Gradient for case study section top */
 .bg-gradient-blue-top {
   background:
     linear-gradient(180deg, rgba(59, 130, 246, 0.08) 0%, transparent 30%);
-}
-
-/* Blue glow border for focused cards */
-.border-glow-blue {
-  box-shadow:
-    0 0 15px rgba(59, 130, 246, 0.4),
-    0 0 30px rgba(59, 130, 246, 0.2),
-    inset 0 0 15px rgba(59, 130, 246, 0.05);
 }
 
 body {
@@ -105,6 +96,9 @@ body {
 
 /* Reduced motion: disable marquee and atmospheric glows */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   .animate-marquee {
     animation: none !important;
   }

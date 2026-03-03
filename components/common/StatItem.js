@@ -69,7 +69,7 @@ export default function StatItem({ value, label, index = 0, live = false, increm
     let intervalId;
 
     const delayId = setTimeout(() => {
-      const intervalMs = 50;
+      const intervalMs = 200;
       const baseIncrement = incrementPerSecond * (intervalMs / 1000);
 
       intervalId = setInterval(() => {

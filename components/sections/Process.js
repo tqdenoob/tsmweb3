@@ -1,24 +1,48 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import StepCard from "@/components/common/StepCard";
 
 function AnimatedStep({ children, delay = 0, className = "" }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const prefersReducedMotion = useReducedMotion();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Respect reduced motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setIsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { rootMargin: "-80px" }
+    );
+
+    observer.observe(el);
+    return () => observer.unobserve(el);
+  }, []);
 
   return (
-    <motion.div
+    <div
       ref={ref}
       className={className}
-      initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay, ease: "easeOut" }}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0)" : "translateY(30px)",
+        transition: `opacity 0.5s ease-out ${delay}s, transform 0.5s ease-out ${delay}s`,
+      }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -28,10 +52,8 @@ export default function Process() {
     <section className="relative px-8 md:px-16 lg:px-24 py-20 md:py-32">
       {/* Figma: "Borealis" + "BG gradient 2" — uses only approved palette: sky-800, blue-700, fuchsia-500, cyan-400 */}
       <div className="absolute inset-0 pointer-events-none -z-10" aria-hidden="true">
-        <div className="absolute left-[-5%] top-[30%] w-[45%] h-[50%] rounded-full bg-sky-800 opacity-20 blur-[150px]" />
-        <div className="absolute left-[15%] top-[35%] w-[35%] h-[45%] rounded-full bg-blue-700 opacity-20 blur-[180px]" />
-        <div className="absolute left-[40%] top-[25%] w-[35%] h-[50%] rounded-full bg-sky-800 opacity-18 blur-[150px]" />
-        <div className="absolute left-[60%] top-[30%] w-[25%] h-[35%] rounded-full bg-cyan-400 opacity-12 blur-[120px]" />
+        <div className="absolute left-[-5%] top-[25%] w-[70%] h-[55%] rounded-full opacity-18 blur-[170px]" style={{ background: "radial-gradient(ellipse at 40% 50%, rgba(7,89,133,0.9) 0%, rgba(29,78,216,0.6) 50%, transparent 85%)" }} />
+        <div className="absolute left-[55%] top-[30%] w-[30%] h-[40%] rounded-full bg-cyan-400 opacity-12 blur-[120px]" />
       </div>
       <div className="max-w-5xl mx-auto">
         {/* Heading */}

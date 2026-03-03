@@ -1,13 +1,15 @@
-"use client";
+import Image from "next/image";
 
 function Thumbnail({ image, views }) {
   return (
     <div className="aspect-[9/16] w-[140px] sm:w-[160px] md:w-[180px] lg:w-[200px] rounded-2xl overflow-hidden relative flex-shrink-0">
       {image ? (
-        <img
+        <Image
           src={image}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 140px, (max-width: 768px) 160px, (max-width: 1024px) 180px, 200px"
         />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460]" />

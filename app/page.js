@@ -23,13 +23,9 @@ export default function Home() {
             className="absolute -inset-x-[20%] -top-[5%] -bottom-[10%] pointer-events-none"
             aria-hidden="true"
           >
-            <div className="absolute left-[3%] top-[30%] w-[65%] h-[45%] rounded-full bg-sky-800 opacity-35 blur-[150px]" />
-            <div className="absolute left-[40%] top-[40%] w-[24%] h-[20%] rounded-full bg-teal-400 opacity-25 blur-[120px]" />
-            <div className="absolute left-[53%] top-[35%] w-[33%] h-[28%] rounded-full bg-fuchsia-500 opacity-30 blur-[150px]" />
-            <div className="absolute left-[57%] top-[42%] w-[26%] h-[20%] rounded-full bg-pink-300 opacity-20 blur-[100px]" />
-            <div className="absolute left-[45%] top-[33%] w-[40%] h-[25%] rounded-full bg-blue-700 opacity-25 blur-[200px]" />
-            <div className="absolute left-[76%] top-[30%] w-[16%] h-[18%] rounded-full bg-cyan-400 opacity-35 blur-[100px]" />
-            <div className="absolute left-[78%] top-[22%] w-[17%] h-[20%] rounded-full bg-cyan-400 opacity-30 blur-[100px]" />
+            <div className="absolute left-[3%] top-[28%] w-[60%] h-[50%] rounded-full opacity-30 blur-[150px]" style={{ background: "radial-gradient(ellipse at center, rgba(7,89,133,0.9) 0%, rgba(29,78,216,0.6) 50%, transparent 80%)" }} />
+            <div className="absolute left-[40%] top-[30%] w-[45%] h-[40%] rounded-full opacity-25 blur-[150px]" style={{ background: "radial-gradient(ellipse at center, rgba(217,70,239,0.8) 0%, rgba(249,168,212,0.4) 50%, transparent 80%)" }} />
+            <div className="absolute left-[65%] top-[22%] w-[30%] h-[35%] rounded-full opacity-30 blur-[120px]" style={{ background: "radial-gradient(ellipse at center, rgba(34,211,238,0.9) 0%, rgba(45,212,191,0.5) 50%, transparent 80%)" }} />
           </div>
         <BrandCarousel />
         {/* Gradient background spanning case studies + CTA + footer */}

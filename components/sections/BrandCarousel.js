@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function BrandCarousel() {
   const brands = [
     { name: "Disney On Ice", image: "/images/brands/Disney.png", width: 120 },
@@ -49,10 +51,13 @@ export default function BrandCarousel() {
                 className="h-10 md:h-12 flex items-center justify-center opacity-80 flex-shrink-0"
                 style={{ width: brand.width }}
               >
-                <img
+                <Image
                   src={brand.image}
                   alt={brand.name}
+                  width={brand.width}
+                  height={48}
                   className="max-h-full max-w-full object-contain"
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -66,10 +71,13 @@ export default function BrandCarousel() {
                 className="h-10 md:h-12 flex items-center justify-center opacity-80 flex-shrink-0"
                 style={{ width: brand.width }}
               >
-                <img
+                <Image
                   src={brand.image}
                   alt=""
+                  width={brand.width}
+                  height={48}
                   className="max-h-full max-w-full object-contain"
+                  loading="lazy"
                 />
               </div>
             ))}

@@ -14,9 +14,7 @@ export default function Statistics() {
     <section className="relative px-8 md:px-16 lg:px-24 pt-2 md:pt-4 pb-16 md:pb-24">
       {/* Atmospheric glow — uses only approved palette: sky-800, blue-700, cyan-400 */}
       <div className="absolute inset-0 pointer-events-none -z-10" aria-hidden="true">
-        <div className="absolute left-[50%] top-[10%] w-[40%] h-[50%] rounded-full bg-blue-700 opacity-12 blur-[150px]" />
-        <div className="absolute left-[60%] top-[25%] w-[20%] h-[30%] rounded-full bg-cyan-400 opacity-12 blur-[100px]" />
-        <div className="absolute left-[30%] top-[20%] w-[30%] h-[35%] rounded-full bg-sky-800 opacity-10 blur-[120px]" />
+        <div className="absolute left-[30%] top-[10%] w-[45%] h-[55%] rounded-full opacity-12 blur-[150px]" style={{ background: "radial-gradient(ellipse at 60% 50%, rgba(29,78,216,0.8) 0%, rgba(7,89,133,0.5) 40%, rgba(34,211,238,0.3) 70%, transparent 90%)" }} />
       </div>
       <div className="max-w-7xl mx-auto">
         {/* Heading centered on top */}

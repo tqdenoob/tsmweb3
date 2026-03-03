@@ -4,8 +4,7 @@ export default function CallToAction() {
     <section id="contact" className="relative px-8 md:px-16 lg:px-24 py-5">
       {/* Soft glow halo — uses only approved palette: sky-800, fuchsia-500 */}
       <div className="absolute inset-0 pointer-events-none -z-10" aria-hidden="true">
-        <div className="absolute left-[25%] top-[10%] w-[35%] h-[50%] rounded-full bg-fuchsia-500 opacity-10 blur-[120px]" />
-        <div className="absolute left-[40%] top-[20%] w-[30%] h-[45%] rounded-full bg-sky-800 opacity-12 blur-[100px]" />
+        <div className="absolute left-[25%] top-[10%] w-[40%] h-[55%] rounded-full opacity-10 blur-[120px]" style={{ background: "radial-gradient(ellipse at 45% 50%, rgba(217,70,239,0.7) 0%, rgba(7,89,133,0.5) 60%, transparent 90%)" }} />
       </div>
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight whitespace-nowrap">
