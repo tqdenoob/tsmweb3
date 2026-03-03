@@ -9,9 +9,7 @@ export default function CallToAction() {
       </div>
       <div className="relative z-10 max-w-2xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-normal leading-tight">
-          Ready to grow
-          <br />
-          your <span className="font-bold text-glow">brand?</span>
+          Ready to grow your <span className="font-bold text-glow">brand?</span>
         </h2>
         <p className="mt-6 text-sm text-white/50 max-w-sm mx-auto leading-relaxed">
           Tell us what you&rsquo;re looking for, and we

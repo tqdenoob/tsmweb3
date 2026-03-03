@@ -243,10 +243,7 @@ export default function CaseStudyCarousel() {
       {/* Heading */}
       <div className="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-normal leading-tight mb-12">
-          Hear from what{" "}
-          <span className="font-bold text-glow">others</span>
-          <br />
-          have to say
+          Hear from what <span className="font-bold text-glow">others</span> have to say
         </h2>
       </div>
 

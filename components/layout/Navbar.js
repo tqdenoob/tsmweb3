@@ -15,24 +15,18 @@ export default function Navbar() {
         </Link>
 
         {/* Links */}
-        <Link
+        <a
           href="#case-studies"
           className="text-white text-sm font-normal hover:opacity-80 transition-opacity"
         >
           Case Studies
-        </Link>
-        <Link
-          href="#pricing"
-          className="text-white text-sm font-normal hover:opacity-80 transition-opacity"
-        >
-          Pricing
-        </Link>
-        <Link
+        </a>
+        <a
           href="#contact"
           className="text-white text-sm font-normal hover:opacity-80 transition-opacity"
         >
           Contact
-        </Link>
+        </a>
       </nav>
     </div>
   );

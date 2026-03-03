@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { animate, useInView, useReducedMotion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { animate, useInView, useMotionValue, useReducedMotion } from "framer-motion";
 
 function parseStatValue(value) {
   const match = value.match(/^(\d+)(.*)/);
@@ -13,10 +13,20 @@ function parseStatValue(value) {
 
 export default function StatItem({ value, label, index = 0 }) {
   const { number, suffix } = parseStatValue(value);
-  const [displayValue, setDisplayValue] = useState(0);
+  const count = useMotionValue(0);
   const ref = useRef(null);
+  const numberRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const prefersReducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    const unsubscribe = count.on("change", (latest) => {
+      if (numberRef.current) {
+        numberRef.current.textContent = Math.floor(latest) + suffix;
+      }
+    });
+    return unsubscribe;
+  }, [count, suffix]);
 
   useEffect(() => {
     if (!isInView) return;
@@ -26,10 +36,9 @@ export default function StatItem({ value, label, index = 0 }) {
 
     let controls;
     const timeoutId = setTimeout(() => {
-      controls = animate(0, number, {
+      controls = animate(count, number, {
         duration,
         ease: "easeOut",
-        onUpdate: (v) => setDisplayValue(Math.floor(v)),
       });
     }, delay);
 
@@ -41,9 +50,8 @@ export default function StatItem({ value, label, index = 0 }) {
 
   return (
     <div ref={ref}>
-      <p className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-        {displayValue}
-        {suffix}
+      <p ref={numberRef} className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+        0{suffix}
       </p>
       <p className="text-sm text-white/50 mt-1">{label}</p>
     </div>

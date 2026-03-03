@@ -52,15 +52,12 @@ export default function Footer() {
 
           {/* Nav links */}
           <div className="flex items-center gap-10 md:gap-14">
-            <Link href="#contact" className="text-white text-sm font-normal hover:opacity-80 transition-opacity">
+            <a href="#contact" className="text-white text-sm font-normal hover:opacity-80 transition-opacity">
               Contact us
-            </Link>
-            <Link href="#case-studies" className="text-white text-sm font-normal hover:opacity-80 transition-opacity">
+            </a>
+            <a href="#case-studies" className="text-white text-sm font-normal hover:opacity-80 transition-opacity">
               Case Studies
-            </Link>
-            <Link href="#pricing" className="text-white text-sm font-normal hover:opacity-80 transition-opacity">
-              Pricing
-            </Link>
+            </a>
           </div>
 
           {/* Social icons */}
@@ -71,7 +68,7 @@ export default function Footer() {
             <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="text-white hover:opacity-80 transition-opacity">
               <TikTokIcon className="w-5 h-5" />
             </a>
-            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-white hover:opacity-80 transition-opacity">
+            <a href="https://wa.link/kiary3" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-white hover:opacity-80 transition-opacity">
               <WhatsAppIcon className="w-5 h-5" />
             </a>
           </div>
