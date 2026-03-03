@@ -40,37 +40,40 @@ export default function BrandCarousel() {
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
 
         {/* Scrolling track: two identical sets for seamless loop */}
-        <div className="flex items-center gap-16 animate-marquee w-max">
+        <div className="flex animate-marquee w-max">
           {/* First set */}
-          {brands.map((brand, i) => (
-            <div
-              key={`a-${i}`}
-              className="h-10 md:h-12 flex items-center justify-center opacity-80 flex-shrink-0"
-              style={{ width: brand.width }}
-            >
-              <img
-                src={brand.image}
-                alt={brand.name}
-                className="max-h-full max-w-full object-contain"
-              />
-            </div>
-          ))}
+          <div className="flex items-center gap-16 shrink-0 pr-16">
+            {brands.map((brand, i) => (
+              <div
+                key={`a-${i}`}
+                className="h-10 md:h-12 flex items-center justify-center opacity-80 flex-shrink-0"
+                style={{ width: brand.width }}
+              >
+                <img
+                  src={brand.image}
+                  alt={brand.name}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
 
           {/* Duplicate set for seamless loop */}
-          {brands.map((brand, i) => (
-            <div
-              key={`b-${i}`}
-              className="h-10 md:h-12 flex items-center justify-center opacity-80 flex-shrink-0"
-              style={{ width: brand.width }}
-              aria-hidden="true"
-            >
-              <img
-                src={brand.image}
-                alt=""
-                className="max-h-full max-w-full object-contain"
-              />
-            </div>
-          ))}
+          <div className="flex items-center gap-16 shrink-0 pr-16" aria-hidden="true">
+            {brands.map((brand, i) => (
+              <div
+                key={`b-${i}`}
+                className="h-10 md:h-12 flex items-center justify-center opacity-80 flex-shrink-0"
+                style={{ width: brand.width }}
+              >
+                <img
+                  src={brand.image}
+                  alt=""
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
