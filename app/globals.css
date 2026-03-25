@@ -42,6 +42,7 @@ html {
 @theme inline {
   --font-sans: var(--font-zt-gatha);
   --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 25s linear infinite;
 }
 
 @keyframes marquee {
@@ -50,6 +51,15 @@ html {
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
@@ -81,7 +91,8 @@ body {
 }
 
 /* Brand marquee — hover pause */
-.animate-marquee:hover {
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
   animation-play-state: paused;
 }
 
@@ -99,7 +110,8 @@ body {
   html {
     scroll-behavior: auto;
   }
-  .animate-marquee {
+  .animate-marquee,
+  .animate-marquee-reverse {
     animation: none !important;
   }
   [aria-hidden="true"][style*="blur"] {

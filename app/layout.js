@@ -13,7 +13,7 @@ const ztGatha = localFont({
 
 export const metadata = {
   title: "Third Spaces Marketing",
-  description: "We don't guess. We engineer. Marketing campaigns that actually work.",
+  description: "Gen-Z doesn't watch ads. We make content they actually share. Social-first marketing for brands targeting the next generation.",
 };
 
 export default function RootLayout({ children }) {

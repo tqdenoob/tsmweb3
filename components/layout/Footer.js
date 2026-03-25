@@ -30,7 +30,7 @@ function WhatsAppIcon({ className }) {
 export default function Footer() {
   return (
     /* NOTE: Section boundaries must remain seamless — no margin between sections, use padding only */
-    <footer className="relative px-8 md:px-16 lg:px-24 pt-12 pb-8">
+    <footer className="relative px-8 md:px-16 lg:px-24 pt-32 pb-8">
       {/* Faint glow — uses only approved palette: sky-800, blue-700 */}
       <div className="absolute inset-0 pointer-events-none -z-10" aria-hidden="true">
         <div className="absolute left-[35%] top-[10%] w-[30%] h-[55%] rounded-full opacity-10 blur-[120px]" style={{ background: "radial-gradient(ellipse at center, rgba(7,89,133,0.8) 0%, rgba(29,78,216,0.4) 60%, transparent 90%)" }} />
@@ -78,7 +78,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p className="text-center text-sm text-white/60">
-          &copy; Copyright 2025, All Rights Reserved by Third Spaces Marketing
+          &copy; Copyright 2026, All Rights Reserved by Third Spaces Marketing
         </p>
       </div>
     </footer>

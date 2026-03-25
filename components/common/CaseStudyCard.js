@@ -74,7 +74,7 @@ export default function CaseStudyCard({ title, subtitle, thumbnails, stats }) {
   return (
     <div className="w-full flex flex-col items-center px-4">
       {/* Title */}
-      <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center lowercase text-glow">
+      <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center text-glow">
         {title}
       </h3>
 

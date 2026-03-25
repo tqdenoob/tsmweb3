@@ -18,6 +18,11 @@ export default function BrandCarousel() {
     { name: "Yakiniku", image: "/images/brands/yakiniku.png", width: 120 },
   ];
 
+  // Split brands into two rows
+  const midpoint = Math.ceil(brands.length / 2);
+  const row1 = brands.slice(0, midpoint);
+  const row2 = brands.slice(midpoint);
+
   return (
     <section className="px-8 md:px-16 lg:px-24 py-16 md:py-24">
       <div className="max-w-5xl lg:max-w-none mx-auto text-center">
@@ -41,47 +46,60 @@ export default function BrandCarousel() {
         {/* Fade mask — right */}
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
 
-        {/* Scrolling track: two identical sets for seamless loop */}
-        <div className="flex animate-marquee w-max">
-          {/* First set */}
-          <div className="flex items-center gap-16 shrink-0 pr-16">
-            {brands.map((brand, i) => (
-              <div
-                key={`a-${i}`}
-                className="h-10 md:h-12 flex items-center justify-center opacity-80 flex-shrink-0"
-                style={{ width: brand.width }}
-              >
-                <Image
-                  src={brand.image}
-                  alt={brand.name}
-                  width={brand.width}
-                  height={48}
-                  className="max-h-full max-w-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
+        {/* Row 1 — scrolls left */}
+        <div className="flex animate-marquee w-max mb-8">
+          {[0, 1].map((setIndex) => (
+            <div
+              key={setIndex}
+              className="flex items-center gap-16 shrink-0 pr-16"
+              aria-hidden={setIndex === 1 ? "true" : undefined}
+            >
+              {row1.map((brand, i) => (
+                <div
+                  key={`r1-${setIndex}-${i}`}
+                  className="h-10 md:h-12 flex items-center justify-center opacity-80 flex-shrink-0"
+                  style={{ width: brand.width }}
+                >
+                  <Image
+                    src={brand.image}
+                    alt={setIndex === 0 ? brand.name : ""}
+                    width={brand.width}
+                    height={48}
+                    className="max-h-full max-w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
 
-          {/* Duplicate set for seamless loop */}
-          <div className="flex items-center gap-16 shrink-0 pr-16" aria-hidden="true">
-            {brands.map((brand, i) => (
-              <div
-                key={`b-${i}`}
-                className="h-10 md:h-12 flex items-center justify-center opacity-80 flex-shrink-0"
-                style={{ width: brand.width }}
-              >
-                <Image
-                  src={brand.image}
-                  alt=""
-                  width={brand.width}
-                  height={48}
-                  className="max-h-full max-w-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
+        {/* Row 2 — scrolls right */}
+        <div className="flex animate-marquee-reverse w-max">
+          {[0, 1].map((setIndex) => (
+            <div
+              key={setIndex}
+              className="flex items-center gap-16 shrink-0 pr-16"
+              aria-hidden={setIndex === 1 ? "true" : undefined}
+            >
+              {row2.map((brand, i) => (
+                <div
+                  key={`r2-${setIndex}-${i}`}
+                  className="h-10 md:h-12 flex items-center justify-center opacity-80 flex-shrink-0"
+                  style={{ width: brand.width }}
+                >
+                  <Image
+                    src={brand.image}
+                    alt={setIndex === 0 ? brand.name : ""}
+                    width={brand.width}
+                    height={48}
+                    className="max-h-full max-w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>

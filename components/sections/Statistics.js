@@ -2,11 +2,11 @@ import StatItem from "@/components/common/StatItem";
 
 export default function Statistics() {
   const stats = [
-    { value: "30576893", label: "Views", live: true, incrementPerSecond: 12 },
-    { value: "2668%", label: "Monthly engagement growth" },
-    { value: "50462", label: "Followers gained", live: true, incrementPerSecond: 2 },
-    { value: "10+", label: "Clients" },
-    { value: "100+", label: "Videos produced" },
+    { value: "30,576,893", label: "Views", live: true, incrementPerSecond: 4 },
+    { value: "2,668%", label: "Monthly engagement growth" },
+    { value: "50,462", label: "Followers gained", live: true, incrementPerSecond: 2 },
+    { value: "20+", label: "Clients" },
+    { value: "1000+", label: "Videos produced" },
   ];
 
   return (
@@ -23,7 +23,7 @@ export default function Statistics() {
             We <span className="font-bold text-glow">deliver.</span>
           </h2>
           <p className="mt-4 text-base md:text-lg text-white/60 mx-auto leading-relaxed whitespace-nowrap">
-            We&rsquo;re data driven. We only produce what gives you real results.
+            Real numbers from real campaigns reaching young audiences across Singapore.
           </p>
         </div>
 

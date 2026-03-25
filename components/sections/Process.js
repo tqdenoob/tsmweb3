@@ -64,9 +64,9 @@ export default function Process() {
             <span className="italic font-bold text-glow">actually work</span>
           </h2>
           <p className="mt-6 text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-            We got sick of dinosaur-aged companies using outdated marketing
-            strategies from their textbooks, so we created our own process to
-            share real stories that resonate with the new generation.
+            Traditional ads don&rsquo;t land with Gen-Z. We build campaigns
+            around the formats, platforms, and stories that this generation
+            actually engages with.
           </p>
         </div>
 
@@ -76,7 +76,7 @@ export default function Process() {
             <StepCard
               number={1}
               title="Ideation"
-              description="We meet up with you to discuss your campaign goals, and ideate and script content."
+              description="We learn your brand, identify what resonates with your audience, and script content built for their feeds."
             />
           </AnimatedStep>
 
@@ -84,7 +84,7 @@ export default function Process() {
             <StepCard
               number={2}
               title="Production"
-              description="We meet your team to produce personalised videos that grab people&#39;s attention."
+              description="We produce short-form videos that are authentic, fast-paced and relatable to young people using TikTok and Instagram."
             />
           </AnimatedStep>
 
@@ -92,7 +92,7 @@ export default function Process() {
             <StepCard
               number={3}
               title="Optimisation"
-              description="We analyse our campaigns and identify areas of improvement to increase long-term engagement."
+              description="We track what Gen-Z responds to, double down on what works, and cut what doesn&#39;t, so you stay consistently viral."
             />
           </AnimatedStep>
         </div>

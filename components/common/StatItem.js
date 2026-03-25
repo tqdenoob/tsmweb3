@@ -4,16 +4,16 @@ import { useEffect, useRef, useCallback } from "react";
 import { animate, useInView, useMotionValue, useReducedMotion } from "framer-motion";
 
 function parseStatValue(value) {
-  const match = value.match(/^(\d+)(.*)/);
+  // Strip commas from the numeric portion, then parse
+  const match = value.match(/^([\d,]+)(.*)/);
   return {
-    number: parseInt(match[1], 10),
+    number: parseInt(match[1].replace(/,/g, ""), 10),
     suffix: match[2] || "",
   };
 }
 
 function formatNumber(n, suffix) {
-  if (suffix) return Math.floor(n) + suffix;
-  return Math.floor(n).toLocaleString();
+  return Math.floor(n).toLocaleString() + suffix;
 }
 
 export default function StatItem({ value, label, index = 0, live = false, incrementPerSecond = 0 }) {

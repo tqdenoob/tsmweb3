@@ -1,6 +1,23 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [blurAmount, setBlurAmount] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      // Blur increases from 0 to 2px over the first 150px of scroll
+      const blur = Math.min(scrollY / 75, 2);
+      setBlurAmount(blur);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     /* NOTE: Section boundaries must remain seamless — no margin between sections, use padding only */
     <section className="relative px-8 md:px-16 lg:px-24 pt-4 pb-4">
@@ -13,13 +30,13 @@ export default function Hero() {
         {/* Left content */}
         <div className="flex-1 pt-8 lg:pt-16">
           <h1 className="text-5xl md:text-6xl lg:text-[68px] font-bold leading-[1.1] tracking-tight">
-            We don&rsquo;t <span className="blur-[2px] decoration-white">guess</span>
+            We don&rsquo;t <span className="decoration-white transition-[filter] duration-300" style={{ filter: `blur(${blurAmount}px)` }}>guess</span>
             <br />
             We <span className="text-glow">engineer</span>
           </h1>
           <p className="mt-8 text-base md:text-lg text-white/60 max-w-md leading-relaxed">
-            Our tried and tested methodology is guaranteed to
-            give your brand the recognition it deserves.
+            Gen-Z doesn&rsquo;t watch ads. We create the content
+            they actually stop scrolling for.
           </p>
         </div>
 

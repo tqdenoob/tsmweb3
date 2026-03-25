@@ -7,7 +7,7 @@ import CaseStudyCard from "@/components/common/CaseStudyCard";
 const caseStudies = [
   {
     title: "Beans&Beats",
-    subtitle: "singapore's fastest growing events company hosting DJ music events with specialty coffee",
+    subtitle: "How we turned a new events brand into Gen-Z's go-to for DJ nights and specialty coffee",
     thumbnails: [
       { image: "/images/casestudies/bnb1.jpg", views: "724K" },
       { image: "/images/casestudies/bnb2.jpg", views: "424K" },
@@ -20,7 +20,7 @@ const caseStudies = [
   },
   {
     title: "A Hot Hideout",
-    subtitle: "fastest growing mala chain in singapore with a viral organic content campaign",
+    subtitle: "A mala chain that went viral with Gen-Z through organic content — no paid ads needed",
     thumbnails: [
       { image: "/images/casestudies/ahothideout1.jpg", views: "559K" },
       { image: "/images/casestudies/ahothideout2.jpg", views: "393K" },
@@ -33,7 +33,7 @@ const caseStudies = [
   },
   {
     title: "Genki Sushi",
-    subtitle: "driving foot traffic and brand awareness for one of singapore's top sushi chains",
+    subtitle: "How we put a major sushi chain on Gen-Z's radar and drove them through the door",
     thumbnails: [
       { image: "/images/casestudies/genki1.jpg", views: "109K" },
       { image: "/images/casestudies/genki2.jpg", views: "110K" },

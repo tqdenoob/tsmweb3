@@ -11,9 +11,9 @@ export default function CallToAction() {
           Ready to grow your <span className="font-bold text-glow">brand?</span>
         </h2>
         <p className="mt-6 text-base md:text-lg text-white/60 max-w-sm mx-auto leading-relaxed">
-          Tell us what you&rsquo;re looking for, and we
-          will get back right away with a quote,
-          ideation timeline and next steps.
+          Tell us who you&rsquo;re trying to reach.
+          We&rsquo;ll come back with a Gen-Z content
+          strategy, timeline, and quote.
         </p>
         <a
           href="https://wa.link/kiary3"
@@ -21,7 +21,7 @@ export default function CallToAction() {
           rel="noopener noreferrer"
           className="inline-block mt-8 px-8 py-3 text-base text-white border border-white/20 bg-white/10 backdrop-blur-sm rounded-[var(--rounded-btn)] transition-all duration-300 hover:bg-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]"
         >
-          Get Started
+          Let&rsquo;s Talk
         </a>
       </div>
     </section>
