@@ -2,11 +2,11 @@ import StatItem from "@/components/common/StatItem";
 
 export default function Statistics() {
   const stats = [
-    { value: "30,576,893", label: "Views", live: true, incrementPerSecond: 4 },
-    { value: "2,668%", label: "Monthly engagement growth" },
-    { value: "50,462", label: "Followers gained", live: true, incrementPerSecond: 2 },
-    { value: "20+", label: "Clients" },
-    { value: "1000+", label: "Videos produced" },
+    { value: "55,000,000", label: "Views Generated for our Clients", live: true, incrementPerSecond: 4 },
+    { value: "1,200,000", label: "Likes, Comments, Shares, and Saves Generated", live: true, incrementPerSecond: 2 },
+    { value: "200,000", label: "Loyal followers gained", live: true, incrementPerSecond: 2 },
+    { value: "20+", label: "Clients who trust us for their growth" },
+    { value: "1000+", label: "Algo-optimised videos produced" },
   ];
 
   return (
@@ -20,10 +20,10 @@ export default function Statistics() {
         {/* Heading centered on top */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
-            We <span className="font-bold text-glow">deliver.</span>
+            What <span className="font-bold text-glow">Gaming</span> the Algorithm Gets You
           </h2>
-          <p className="mt-4 text-base md:text-lg text-white/60 mx-auto leading-relaxed whitespace-nowrap">
-            Real numbers from real campaigns reaching young audiences across Singapore.
+          <p className="mt-4 text-base md:text-lg text-white/60 mx-auto leading-relaxed">
+            No vanity metrics. Just hard data from relentless testing, optimization, and scaling brands across Singapore&rsquo;s toughest demographic.
           </p>
         </div>
 
