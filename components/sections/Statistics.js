@@ -1,12 +1,14 @@
 import StatItem from "@/components/common/StatItem";
 
 export default function Statistics() {
+  // Specific (non-round) figures that keep ticking up while the visitor is on
+  // the page read as a real, live metric.
   const stats = [
-    { value: "55,000,000", label: "Views Generated for our Clients", live: true, incrementPerSecond: 4 },
-    { value: "1,200,000", label: "Likes, Comments, Shares, and Saves Generated", live: true, incrementPerSecond: 2 },
-    { value: "200,000", label: "Loyal followers gained", live: true, incrementPerSecond: 2 },
-    { value: "20+", label: "Clients who trust us for their growth" },
-    { value: "1000+", label: "Algo-optimised videos produced" },
+    { value: "79,432,118", label: "Views generated for our clients", live: true, incrementPerSecond: 5 },
+    { value: "3,948,205", label: "Engagements generated", live: true, incrementPerSecond: 2 },
+    { value: "497,326", label: "Followers gained", live: true, incrementPerSecond: 1 },
+    { value: "30+", label: "Clients who trust us for their growth" },
+    { value: "1,000+", label: "Algo-optimised videos produced" },
   ];
 
   return (
@@ -14,7 +16,7 @@ export default function Statistics() {
     <section className="relative px-8 md:px-16 lg:px-24 pt-2 md:pt-4 pb-16 md:pb-24">
       {/* Atmospheric glow — uses only approved palette: sky-800, blue-700, cyan-400 */}
       <div className="absolute inset-0 pointer-events-none -z-10" aria-hidden="true">
-        <div className="absolute left-[30%] top-[10%] w-[45%] h-[55%] rounded-full opacity-12 blur-[150px]" style={{ background: "radial-gradient(ellipse at 60% 50%, rgba(29,78,216,0.8) 0%, rgba(7,89,133,0.5) 40%, rgba(34,211,238,0.3) 70%, transparent 90%)" }} />
+        <div className="absolute left-[30%] top-[10%] w-[45%] h-[55%] rounded-full opacity-8 blur-[90px]" style={{ background: "radial-gradient(ellipse at 60% 50%, rgba(29,78,216,0.8) 0%, rgba(7,89,133,0.5) 40%, rgba(34,211,238,0.3) 70%, transparent 90%)" }} />
       </div>
       <div className="max-w-7xl mx-auto">
         {/* Heading centered on top */}

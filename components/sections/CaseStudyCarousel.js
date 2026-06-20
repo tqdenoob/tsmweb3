@@ -20,7 +20,7 @@ const caseStudies = [
   },
   {
     title: "A Hot Hideout",
-    subtitle: "A mala chain that went viral with Gen-Z through organic content — no paid ads needed",
+    subtitle: "A mala chain that went viral with Gen-Z through organic content, no paid ads needed",
     thumbnails: [
       { image: "/images/casestudies/ahothideout1.jpg", views: "559K" },
       { image: "/images/casestudies/ahothideout2.jpg", views: "393K" },

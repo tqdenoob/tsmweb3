@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Instagram } from "lucide-react";
 
@@ -33,30 +34,34 @@ export default function Footer() {
     <footer className="relative px-8 md:px-16 lg:px-24 pt-32 pb-8">
       {/* Faint glow — uses only approved palette: sky-800, blue-700 */}
       <div className="absolute inset-0 pointer-events-none -z-10" aria-hidden="true">
-        <div className="absolute left-[35%] top-[10%] w-[30%] h-[55%] rounded-full opacity-10 blur-[120px]" style={{ background: "radial-gradient(ellipse at center, rgba(7,89,133,0.8) 0%, rgba(29,78,216,0.4) 60%, transparent 90%)" }} />
+        <div className="absolute left-[35%] top-[10%] w-[30%] h-[55%] rounded-full opacity-6 blur-[80px]" style={{ background: "radial-gradient(ellipse at center, rgba(7,89,133,0.8) 0%, rgba(29,78,216,0.4) 60%, transparent 90%)" }} />
       </div>
       <div className="max-w-6xl mx-auto">
         {/* Top row: logo, links, social icons */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
-          <Link href="/" aria-label="Third Spaces Marketing home">
-            {/* TODO: Replace with actual Third Spaces logo SVG */}
-            <div className="w-14 h-14">
-              <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                <path d="M28 8C20 8 14 14 14 22C14 26 16 29 19 31L14 42H22L25 35H28C36 35 42 29 42 22C42 14 36 8 28 8ZM28 28C24 28 21 25 21 22C21 18 24 15 28 15C32 15 35 18 35 22C35 25 32 28 28 28Z" fill="white"/>
-                <path d="M32 35L35 42H43L38 31C41 29 43 26 43 22" stroke="white" strokeWidth="2" fill="none"/>
-              </svg>
-            </div>
+          <Link href="/#top" aria-label="Third Spaces Marketing home">
+            <Image
+              src="/tsm-logo-full.png"
+              alt="Third Spaces Marketing"
+              width={1697}
+              height={425}
+              className="h-10 w-auto"
+              style={{ filter: "brightness(0) invert(1)" }}
+            />
           </Link>
 
           {/* Nav links */}
           <div className="flex items-center gap-10 md:gap-14">
-            <a href="#contact" className="text-white text-sm font-normal hover:opacity-80 transition-opacity">
+            <Link href="/services" className="text-white text-sm font-normal hover:opacity-80 transition-opacity">
+              Services
+            </Link>
+            <Link href="/#contact" className="text-white text-sm font-normal hover:opacity-80 transition-opacity">
               Contact us
-            </a>
-            <a href="#case-studies" className="text-white text-sm font-normal hover:opacity-80 transition-opacity">
+            </Link>
+            <Link href="/#case-studies" className="text-white text-sm font-normal hover:opacity-80 transition-opacity">
               Case Studies
-            </a>
+            </Link>
           </div>
 
           {/* Social icons */}
