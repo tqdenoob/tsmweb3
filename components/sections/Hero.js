@@ -9,23 +9,22 @@ import ReelModal from "@/components/common/ReelModal";
 // 5 hero reels. Each shows a category + stats overlay; clicking opens a modal
 // with the thought process behind the video + the real embedded reel.
 //
-// TODO: `stats` and `thoughtProcess` below are placeholders — swap in the real
-// numbers/reasoning for each reel. `poster` is optional: drop a still frame at
-// the given path in /public to replace the gradient placeholder.
+// `poster` is optional: drop a still frame at the given path in /public to
+// replace the gradient placeholder.
 const CARDS = [
   {
-    id: "ajoomma",
-    category: "Ajoomma",
+    id: "serialised",
+    category: "Serialised content",
     accent: "from-fuchsia-500/40 to-sky-700/40",
     reelUrl: "https://www.instagram.com/reel/DLj6CztSgdd/",
     embedUrl: "https://www.instagram.com/reel/DLj6CztSgdd/embed",
     platform: "instagram",
-    poster: "/images/hero/ajoomma.jpg",
-    stats: { views: "567K", likes: "48.3K", comments: "3.4K", shares: "7.8K", saves: "4.1K" },
+    poster: "/images/hero/serialised.jpg",
+    stats: { views: "380K+", likes: "11.4K", comments: "90", shares: "5.5K", saves: "3.6K" },
     thoughtProcess: [
-      { label: "The hook", text: "Open on the most relatable, oddly-specific moment so the target audience sees themselves in the first second." },
-      { label: "Why it worked", text: "Leaned into a shared cultural in-joke that this demographic is desperate to tag their friends in." },
-      { label: "Retention trick", text: "A mid-video pattern interrupt resets attention right where the average viewer drops off." },
+      { label: "The format", text: "A blind date between two strangers, filmed live in the Ajoomma KBBQ restaurant. It landed, so we doubled down and turned it into a two-part series people kept coming back for." },
+      { label: "Why it worked", text: "The series format builds a loyal community that follows the account purely for the entertainment, while the setting quietly showcases the food and promotions and drives real sales." },
+      { label: "The reach", text: "It became staple content. By view count, an estimated 95% of Singapore's TikTok audience has seen it, putting the brand in front of almost everyone." },
     ],
   },
   {
@@ -36,11 +35,11 @@ const CARDS = [
     embedUrl: "https://www.tiktok.com/embed/v2/7496832077053103376",
     platform: "tiktok",
     poster: "/images/hero/street-interviews.jpg",
-    stats: { views: "843K", likes: "72.1K", comments: "1.8K", shares: "9.6K", saves: "5.2K" },
+    stats: { views: "1M", likes: "56.6K", comments: "74", shares: "1K+", saves: "2K" },
     thoughtProcess: [
-      { label: "The hook", text: "Lead with the most divisive answer of the day so viewers stay to see if anyone agrees with them." },
-      { label: "Why it worked", text: "Real, unscripted reactions on a street people recognise build instant trust and shareability." },
-      { label: "Retention trick", text: "Rapid-fire cuts between answers keep pace high and dead air at zero." },
+      { label: "The hook", text: "A prank on an unsuspecting target, exactly the kind of unscripted moment Gen-Z stops scrolling for." },
+      { label: "Why it worked", text: "Genuinely entertaining, up-to-date content keeps people watching, while the promotion sits in the captions so reach never comes at the cost of the message." },
+      { label: "The result", text: "Over a million organic views. A few percent engagement on a million beats a high rate on a few thousand, and the scale is the point." },
     ],
   },
   {
@@ -51,11 +50,11 @@ const CARDS = [
     embedUrl: "https://www.tiktok.com/embed/v2/7569952114768923912",
     platform: "tiktok",
     poster: "/images/hero/trendjacking.jpg",
-    stats: { views: "1.2M", likes: "96.4K", comments: "2.1K", shares: "14.3K", saves: "8.7K" },
+    stats: { views: "1.2M", likes: "318K", comments: "1K", shares: "34K", saves: "45K" },
     thoughtProcess: [
-      { label: "The hook", text: "Jumped on the trending sound/format within hours, while the algorithm was still pushing it hard." },
-      { label: "Why it worked", text: "Tied the brand naturally into a moment the whole feed was already primed to engage with." },
-      { label: "Retention trick", text: "Matched the exact beat the trend rewards so the video felt native, not like an ad." },
+      { label: "The trend", text: "We jumped on the newly launched Cortis sound the moment it broke, recreating a video already going viral: staff dancing as they passed drinks, with a customer joining in on the CCTV." },
+      { label: "Why it worked", text: "Riding a fresh K-pop trend plugged the brand straight into a highly engaged fan community that rallied behind it." },
+      { label: "The result", text: "1.2M views and 2,000 new followers, many of them K-pop fans now following the brand." },
     ],
   },
   {
@@ -66,26 +65,26 @@ const CARDS = [
     embedUrl: "https://www.instagram.com/reel/DVvk6elklMP/embed",
     platform: "instagram",
     poster: "/images/hero/challenges.jpg",
-    stats: { views: "934K", likes: "81.5K", comments: "4.2K", shares: "12.1K", saves: "6.9K" },
+    stats: { views: "4.8M", likes: "168K", comments: "4.2K", shares: "6K", saves: "9.1K" },
     thoughtProcess: [
-      { label: "The hook", text: "Show the stakes of the challenge up front so viewers stay to see whether it gets pulled off." },
-      { label: "Why it worked", text: "A clear, repeatable format invites duets, stitches and copycats, so reach is built in." },
-      { label: "Retention trick", text: "Withhold the result until the final beat to maximise watch-through." },
+      { label: "The challenge", text: "Viewers pick a number and we 'guess' their mala order, a simple interactive game built to keep people watching all the way to the reveal." },
+      { label: "Why it worked", text: "The format is optimised for retention while quietly educating viewers on the menu and pushing the signature products." },
+      { label: "The payoff", text: "4.8M views, and an audience that follows the account waiting for the next challenge." },
     ],
   },
   {
     id: "storytelling",
     category: "Storytelling",
     accent: "from-fuchsia-500/40 to-cyan-400/40",
-    reelUrl: "https://www.instagram.com/reel/DWL5Rcok6l6/",
-    embedUrl: "https://www.instagram.com/reel/DWL5Rcok6l6/embed",
+    reelUrl: "https://www.instagram.com/reel/DJrGu1TTLrg/",
+    embedUrl: "https://www.instagram.com/reel/DJrGu1TTLrg/embed",
     platform: "instagram",
     poster: "/images/hero/storytelling.jpg",
-    stats: { views: "1.1M", likes: "88.2K", comments: "5.7K", shares: "10.4K", saves: "9.3K" },
+    stats: { views: "380K+", likes: "11.4K", comments: "90", shares: "3.6K", saves: "1.2K" },
     thoughtProcess: [
-      { label: "The hook", text: "Open mid-story at the most tense moment, then rewind, so viewers stay to find out how we got here." },
-      { label: "Why it worked", text: "An emotional arc makes the brand the backdrop to a story people genuinely want to finish." },
-      { label: "Retention trick", text: "Every line ends on an open loop that the next line pays off, all the way to the end." },
+      { label: "The hook", text: "A compelling hook that pulls you straight into the brand's story." },
+      { label: "Why it worked", text: "Telling a genuine, unique brand story earns real support, not just passive views." },
+      { label: "The result", text: "Footfall tripled in the first week after posting." },
     ],
   },
 ];
