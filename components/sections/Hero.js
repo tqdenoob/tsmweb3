@@ -20,12 +20,11 @@ const CARDS = [
     embedUrl: "https://www.instagram.com/reel/DLj6CztSgdd/embed",
     platform: "instagram",
     poster: "/images/hero/serialised.jpg",
-    stats: { views: "380K+", likes: "11.4K", comments: "90", shares: "5.5K", saves: "3.6K" },
-    thoughtProcess: [
-      { label: "The format", text: "A blind date between two strangers, filmed live in the Ajoomma KBBQ restaurant. It landed, so we doubled down and turned it into a two-part series people kept coming back for." },
-      { label: "Why it worked", text: "The series format builds a loyal community that follows the account purely for the entertainment, while the setting quietly showcases the food and promotions and drives real sales." },
-      { label: "The reach", text: "It became staple content. By view count, an estimated 95% of Singapore's TikTok audience has seen it, putting the brand in front of almost everyone." },
-    ],
+    stats: { views: "4.4M", likes: "138K", shares: "5.5K", reposts: "420" },
+    whatWeDid:
+      "Here's what we did for Ajoomma, a Korean BBQ spot. We set up a blind date between two strangers and filmed it right there at the table. The format does a lot of quiet work for us: a date is the kind of low-stakes drama people will happily watch to the end, and because everyone is eating, the food and the restaurant carry every shot without it ever feeling like an ad. When the first one landed we turned it into a series and started splitting each date across two videos, so anyone invested had to come back for the ending. That return habit is what compounded into **4.4M views** and **138K likes**, and it is why most Gen Z in Singapore now recognise the place, the kind of awareness that actually fills tables.",
+    whyItWorks:
+      "Serialised content is one of our signature formats at Third Spaces. We use it to turn a one-off hit into a habit. Each episode builds on the last, so the audience comes back on its own, and splitting a story across two parts is one of the strongest ways to hold attention: people sit through the promo to reach the payoff. That's how this format builds a genuine community around a brand and keeps the sales coming long after the first video.",
   },
   {
     id: "street-interviews",
@@ -36,11 +35,10 @@ const CARDS = [
     platform: "tiktok",
     poster: "/images/hero/street-interviews.jpg",
     stats: { views: "1M", likes: "56.6K", comments: "74", shares: "1K+", saves: "2K" },
-    thoughtProcess: [
-      { label: "The hook", text: "A prank on an unsuspecting target, exactly the kind of unscripted moment Gen-Z stops scrolling for." },
-      { label: "Why it worked", text: "Genuinely entertaining, up-to-date content keeps people watching, while the promotion sits in the captions so reach never comes at the cost of the message." },
-      { label: "The result", text: "Over a million organic views. A few percent engagement on a million beats a high rate on a few thousand, and the scale is the point." },
-    ],
+    whatWeDid:
+      "Here's what we did for La Pizzaiola: a prank video. Pranks are some of the most naturally shareable content out there, they run on a reaction you can't fake, and that is exactly what a Gen Z feed rewards, something genuinely funny rather than polished. We built the gag around the brand so the pizza was part of the joke instead of an ad stapled to the end. It pulled **1M organic views** and **56.6K likes** with nothing spent on promotion, putting La Pizzaiola in front of a whole new crowd and turning them into people who actually walk in for a slice.",
+    whyItWorks:
+      "Pranks and street content are our go-to awareness play. They're made to be shared, so they reach people who'd never sit through an ad, and the format itself makes them stop and watch. The brand rides along inside something genuinely fun, which is how we put a name in front of a massive new audience fast. It's what we reach for when a brand needs to get known.",
   },
   {
     id: "trendjacking",
@@ -51,11 +49,10 @@ const CARDS = [
     platform: "tiktok",
     poster: "/images/hero/trendjacking.jpg",
     stats: { views: "1.2M", likes: "318K", comments: "1K", shares: "34K", saves: "45K" },
-    thoughtProcess: [
-      { label: "The trend", text: "We jumped on the newly launched Cortis sound the moment it broke, recreating a video already going viral: staff dancing as they passed drinks, with a customer joining in on the CCTV." },
-      { label: "Why it worked", text: "Riding a fresh K-pop trend plugged the brand straight into a highly engaged fan community that rallied behind it." },
-      { label: "The result", text: "1.2M views and 2,000 new followers, many of them K-pop fans now following the brand." },
-    ],
+    whatWeDid:
+      "Here's what we did for Whale Tea. The K-pop band Cortis had just debuted and their sound was taking over the feed, and a trend like that has a short shelf life, so we moved within a day or two. We recreated a clip that was already blowing up: staff dancing as they passed a drink across the counter, then a customer catching on and joining in, all caught on the shop's own CCTV. Getting on it early meant the algorithm was still pushing the sound hard, and it dropped the brand straight into a fandom that loves to rally behind anything that gets their group right. They ran with it, to **1.2M views**, **318K likes** and **2,000 new followers**, a young K-pop crowd that now buys and keeps coming back.",
+    whyItWorks:
+      "Trendjacking is a signature move in our playbook. It borrows attention that already exists: the algorithm is busy pushing the trend, so we ride that momentum instead of building it from scratch. Speed is the whole game, we move within a day or two before it goes stale. Done right it's a massive jolt of awareness, and when there's a community behind the trend like a K-pop fandom, the brand inherits their energy and walks away with real followers.",
   },
   {
     id: "challenges",
@@ -66,11 +63,10 @@ const CARDS = [
     platform: "instagram",
     poster: "/images/hero/challenges.jpg",
     stats: { views: "4.8M", likes: "168K", comments: "4.2K", shares: "6K", saves: "9.1K" },
-    thoughtProcess: [
-      { label: "The challenge", text: "Viewers pick a number and we 'guess' their mala order, a simple interactive game built to keep people watching all the way to the reveal." },
-      { label: "Why it worked", text: "The format is optimised for retention while quietly educating viewers on the menu and pushing the signature products." },
-      { label: "The payoff", text: "4.8M views, and an audience that follows the account waiting for the next challenge." },
-    ],
+    whatWeDid:
+      "Here's what we did for A Hot Hideout: an interactive game. Interactive content is one of the strongest retention plays going, the moment you ask viewers to join in they stay to the end and jump into the comments, which is exactly the behaviour the algorithm rewards. We built the game around the menu, so all that attention quietly educated people on the product at the same time. It came to **4.8M views** and **168K likes**, and an audience that now knows what to order before they even walk in.",
+    whyItWorks:
+      "Interactive challenges are one of our signature formats because they win on the two things the algorithm rewards most, watch time and comments. Getting the viewer to play along keeps them watching to the end and gets them replying, which pushes the video further. And because the game is built around the actual product, all that attention doubles as product education, the kind that moves people from just watching to wanting to come in and buy.",
   },
   {
     id: "storytelling",
@@ -81,11 +77,10 @@ const CARDS = [
     platform: "instagram",
     poster: "/images/hero/storytelling.jpg",
     stats: { views: "380K+", likes: "11.4K", comments: "90", shares: "3.6K", saves: "1.2K" },
-    thoughtProcess: [
-      { label: "The hook", text: "A compelling hook that pulls you straight into the brand's story." },
-      { label: "Why it worked", text: "Telling a genuine, unique brand story earns real support, not just passive views." },
-      { label: "The result", text: "Footfall tripled in the first week after posting." },
-    ],
+    whatWeDid:
+      "Here's what we did for Sweet Dots: we showed its story. It is a Chinese dessert shop built on a grandmother's recipes, reopened by two daughters helping their mum, and a brand like that does not need a gimmick, it needs its story told properly. So we put the heritage and the family front and centre and let the realness carry it, because an honest story is what a younger audience genuinely rallies behind rather than scrolls past. They did not just watch it, they showed up: off **380K+ views**, **footfall tripled in the first week**, real people through the door instead of numbers on a screen.",
+    whyItWorks:
+      "Storytelling is where our whole approach pays off, it's how we turn viewers into customers. Reach and trends get a brand seen, but a real story is what makes people care, and caring is what gets them through the door. It's the format that carries a brand from a first impression all the way to a sale. For a heritage F&B brand like this, the story is the product.",
   },
 ];
 
@@ -233,15 +228,13 @@ export default function Hero() {
                 </motion.div>
               );
             })}
-          </div>
 
-          {/* Manual navigation */}
-          <div className="flex items-center gap-4 mt-4">
+            {/* Manual navigation, flanking the cards */}
             <button
               type="button"
               onClick={() => step(1)}
               aria-label="Previous reel"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-xl border border-white/10 text-white transition-colors hover:bg-white/20"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-40 flex h-9 w-9 lg:h-10 lg:w-10 items-center justify-center rounded-full bg-black/40 backdrop-blur-xl border border-white/15 text-white transition-colors hover:bg-white/20"
             >
               <ChevronLeft size={20} />
             </button>
@@ -249,7 +242,7 @@ export default function Hero() {
               type="button"
               onClick={() => step(-1)}
               aria-label="Next reel"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-xl border border-white/10 text-white transition-colors hover:bg-white/20"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-40 flex h-9 w-9 lg:h-10 lg:w-10 items-center justify-center rounded-full bg-black/40 backdrop-blur-xl border border-white/15 text-white transition-colors hover:bg-white/20"
             >
               <ChevronRight size={20} />
             </button>

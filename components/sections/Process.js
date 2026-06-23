@@ -229,9 +229,7 @@ export default function Process() {
         {/* Heading */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
-            The system behind
-            <br />
-            <span className="italic font-bold text-glow">going viral</span>
+            The system behind <span className="italic font-bold text-glow">going viral</span>
           </h2>
           <p className="mt-6 text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
             No posting and praying. We run your content as a data-driven engine:

@@ -15,8 +15,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="sticky top-0 z-100 isolate flex justify-center px-4 py-4 pointer-events-none">
-      <nav className="pointer-events-auto relative w-full max-w-3xl md:w-auto flex items-center justify-between gap-6 md:gap-12 bg-white/10 backdrop-blur-xl border border-white/10 rounded-full pl-5 pr-3 md:pr-8 py-2.5 shadow-[0_4px_30px_rgba(7,89,133,0.12),0_8px_40px_rgba(29,78,216,0.06)]">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/70 backdrop-blur-xl">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10 py-3">
         {/* Full logo (black source recoloured to white for the dark bar) */}
         <Link href="/#top" aria-label="Third Spaces Marketing home" className="shrink-0" onClick={() => setOpen(false)}>
           <Image
@@ -25,7 +25,7 @@ export default function Navbar() {
             width={1697}
             height={425}
             priority
-            className="h-7 md:h-9 w-auto"
+            className="h-8 md:h-9 w-auto"
             style={{ filter: "brightness(0) invert(1)" }}
           />
         </Link>
@@ -53,23 +53,25 @@ export default function Navbar() {
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
+      </nav>
 
-        {/* Mobile dropdown */}
-        {open && (
-          <div className="md:hidden absolute right-0 top-[calc(100%+8px)] min-w-44 flex flex-col gap-1 bg-[#0c0c0c]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-[0_8px_40px_rgba(0,0,0,0.5)]">
+      {/* Mobile dropdown */}
+      {open && (
+        <div className="md:hidden border-t border-white/10 bg-black/90 backdrop-blur-xl">
+          <div className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-3">
             {LINKS.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="px-4 py-2.5 rounded-xl text-white text-sm hover:bg-white/10 transition-colors"
+                className="px-2 py-2.5 rounded-lg text-white text-sm hover:bg-white/10 transition-colors"
               >
                 {l.label}
               </Link>
             ))}
           </div>
-        )}
-      </nav>
-    </div>
+        </div>
+      )}
+    </header>
   );
 }

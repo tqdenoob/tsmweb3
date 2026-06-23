@@ -2,7 +2,17 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Heart, MessageCircle, Share2, Bookmark, Play } from "lucide-react";
+import { Heart, MessageCircle, Share2, Bookmark, Repeat2, Play } from "lucide-react";
+
+// Possible engagement metrics in display order. A card only renders the ones
+// its `stats` actually provides.
+const METRICS = [
+  ["likes", Heart],
+  ["comments", MessageCircle],
+  ["shares", Share2],
+  ["saves", Bookmark],
+  ["reposts", Repeat2],
+];
 
 /**
  * Lightweight hero reel card: a poster (or gradient placeholder) with a
@@ -13,12 +23,10 @@ import { Heart, MessageCircle, Share2, Bookmark, Play } from "lucide-react";
 export default function ReelCard({ category, accent, poster, stats, interactive, onClick }) {
   const [posterFailed, setPosterFailed] = useState(false);
 
-  const sidebar = [
-    { icon: Heart, count: stats.likes },
-    { icon: MessageCircle, count: stats.comments },
-    { icon: Share2, count: stats.shares },
-    { icon: Bookmark, count: stats.saves },
-  ];
+  const sidebar = METRICS.filter(([key]) => stats[key] != null).map(([key, icon]) => ({
+    icon,
+    count: stats[key],
+  }));
 
   return (
     <button

@@ -4,6 +4,7 @@ export default function Statistics() {
   // Specific (non-round) figures that keep ticking up while the visitor is on
   // the page read as a real, live metric.
   const stats = [
+    { value: "100%", label: "Of clients who stay 6+ months go viral, with videos past 500K views" },
     { value: "79,432,118", label: "Views generated for our clients", live: true, incrementPerSecond: 5 },
     { value: "3,948,205", label: "Engagements generated", live: true, incrementPerSecond: 2 },
     { value: "497,326", label: "Followers gained", live: true, incrementPerSecond: 1 },
@@ -24,8 +25,10 @@ export default function Statistics() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
             What <span className="font-bold text-glow">Gaming</span> the Algorithm Gets You
           </h2>
-          <p className="mt-4 text-base md:text-lg text-white/60 mx-auto leading-relaxed">
-            No vanity metrics. Just hard data from relentless testing, optimization, and scaling brands across Singapore&rsquo;s toughest demographic.
+          <p className="mt-4 text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+            Not vanity metrics, receipts. This is real growth for real brands,
+            earned through relentless testing and content engineered to actually
+            perform with the toughest crowd to win over: Gen Z in Singapore.
           </p>
         </div>
 

@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-const TO_EMAIL = "johnson@thirdspacesmarketing.com";
+const TO_EMAIL = "hello@thirdspacesmarketing.com";
 // Until a domain is verified in Resend, use their shared onboarding sender.
 // After verifying thirdspacesmarketing.com, set FROM_EMAIL in .env.local.
 const FROM_EMAIL = process.env.FROM_EMAIL || "Third Spaces Leads <onboarding@resend.dev>";
