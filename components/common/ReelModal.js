@@ -1,10 +1,30 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, ExternalLink } from "lucide-react";
 
+// Render a string with **bold** segments (used to highlight stats inline).
+function renderRich(text) {
+  return text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
+    i % 2 === 1 ? (
+      <strong key={i} className="font-bold text-white">{part}</strong>
+    ) : (
+      part
+    )
+  );
+}
+
 export default function ReelModal({ card, onClose }) {
+  // Portal to <body> so the modal escapes the page's stacking context and
+  // covers the sticky header. Mounted guard keeps it SSR-safe.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
   // Close on Escape + lock body scroll while open.
   useEffect(() => {
     if (!card) return;
@@ -20,7 +40,9 @@ export default function ReelModal({ card, onClose }) {
     };
   }, [card, onClose]);
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {card && (
         <motion.div
@@ -74,33 +96,36 @@ export default function ReelModal({ card, onClose }) {
                 <span className="inline-block bg-white/10 border border-white/15 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
                   {card.category}
                 </span>
-                <h3 className="mt-4 text-2xl font-bold text-glow">
-                  The thought process
-                </h3>
 
-                {/* Stats row */}
+                {/* Stats row — only the metrics this reel actually has */}
                 <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-                  <span className="text-white"><span className="font-bold">{card.stats.views}</span> <span className="text-white/50">views</span></span>
-                  <span className="text-white"><span className="font-bold">{card.stats.likes}</span> <span className="text-white/50">likes</span></span>
-                  <span className="text-white"><span className="font-bold">{card.stats.comments}</span> <span className="text-white/50">comments</span></span>
-                  <span className="text-white"><span className="font-bold">{card.stats.shares}</span> <span className="text-white/50">shares</span></span>
-                  <span className="text-white"><span className="font-bold">{card.stats.saves}</span> <span className="text-white/50">saves</span></span>
+                  {["views", "likes", "comments", "shares", "saves", "reposts"]
+                    .filter((key) => card.stats[key] != null)
+                    .map((key) => (
+                      <span key={key} className="text-white">
+                        <span className="font-bold">{card.stats[key]}</span>{" "}
+                        <span className="text-white/50">{key}</span>
+                      </span>
+                    ))}
                 </div>
 
-                {/* Steps */}
-                <ol className="mt-6 space-y-5">
-                  {card.thoughtProcess.map((step, i) => (
-                    <li key={i} className="flex gap-4">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15 text-sm font-bold text-glow">
-                        {i + 1}
-                      </span>
-                      <div>
-                        <h4 className="text-sm font-bold text-white">{step.label}</h4>
-                        <p className="mt-1 text-sm text-white/60 leading-relaxed">{step.text}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
+                {/* The thought process + what we did */}
+                <h3 className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
+                  The thought process
+                </h3>
+                <p className="mt-2 text-sm text-white/70 leading-relaxed">
+                  {renderRich(card.whatWeDid)}
+                </p>
+
+                {/* Why it works */}
+                <div className="mt-5 rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-glow">
+                    Why it works
+                  </h3>
+                  <p className="mt-2 text-sm text-white/70 leading-relaxed">
+                    {card.whyItWorks}
+                  </p>
+                </div>
 
                 <a
                   href={card.reelUrl}
@@ -116,6 +141,7 @@ export default function ReelModal({ card, onClose }) {
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

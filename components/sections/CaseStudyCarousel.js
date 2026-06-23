@@ -102,10 +102,14 @@ export default function CaseStudyCarousel() {
     >
       {/* Heading */}
       <div className="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
-        <h2 className="text-center text-4xl md:text-5xl lg:text-6xl font-normal leading-tight mb-12">
-          Hear from what{" "}
-          <span className="font-bold text-glow">others</span> have to say
+        <h2 className="text-center text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
+          The proof is in the <span className="font-bold text-glow">work</span>
         </h2>
+        <p className="text-center text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed mt-6 mb-12">
+          We don&rsquo;t buy reach, we earn it. Every result here came from
+          organic content built to be watched and shared, no paid promotion, no
+          shortcuts.
+        </p>
       </div>
 
       {/* Carousel area */}
